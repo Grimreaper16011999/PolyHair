@@ -28,6 +28,12 @@ elseif(exist_param("khuyen_mai")){
 elseif(exist_param("style")){
     $VIEW_NAME = "style.php";
 }
+elseif(exist_param("dien_dan")){
+    $VIEW_NAME = "dien_dan.php";
+}
+elseif(exist_param("register")){
+    $VIEW_NAME = "register.php";
+}
 else {
     $VIEW_NAME = "home.php";
 }

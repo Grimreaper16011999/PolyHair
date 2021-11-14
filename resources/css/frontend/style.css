@@ -4,7 +4,7 @@
 }
 
 header {
-    background-color: rgb(229, 235, 222);
+    background-color: #fff;
 }
 
 header ul li {
@@ -72,5 +72,29 @@ footer .footer_bootom {
 }
 
 header .top {
-    background-color: #161616;
+    background-color: #a18e10;
+}
+
+header .top a {
+    color: #fff;
+    font-size: 14px;
+    /* background-color: #bebcaa; */
+}
+
+.content {
+    position: relative;
+}
+
+.content .datlich {
+    position: fixed;
+    bottom: 50px;
+    left: 20px;
+    z-index: 99999;
+}
+
+.content .datlich a {
+    display: block;
+    text-decoration: none;
+    margin-top: 5px;
+    text-align: left;
 }

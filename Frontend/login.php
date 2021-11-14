@@ -27,7 +27,7 @@
                         <?php echo $error; ?>
                     </div>
                 <?php endif; ?>
-                <button type="submit" class="btn btn-primary" name="btn_DangNhap">Đăng nhập</button>
+                <button type="submit" class="col-12 btn btn-primary" name="btn_DangNhap">Đăng nhập</button>
             </form>
         </div>
     </div>

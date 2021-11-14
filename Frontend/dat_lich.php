@@ -1,10 +1,18 @@
+<?php
+require "../DAO/coso.php";
+require "../DAO/nhanvien.php";
+
+$cs = loai_select_All();
+
+
+?>
 <link rel="stylesheet" href="../resources/css/frontend/dat_lich.css">
 <div class="test">
     <div class="container pt-5 pb-5">
         <h2 class="text-center">Đặt lịch cắt tóc</h2>
         <div class="row">
-            <div class="col-sm-3"></div>
-            <form action="" method="post" class="col-sm-6" class="border border-1">
+            <div class="col-12 col-sm-3"></div>
+            <form action="" method="post" class="col-12 col-sm-6" class="border border-1">
                 <div class="form-group mt-4">
                     <label for="">Tên của bạn</label><br>
                     <input type="text" class="form-control" name="name" value="Tên tài khoản">
@@ -91,20 +99,38 @@
                 <div class="form-group mt-4">
                     <label for="">Chọn nơi cắt *</label>
                     <div class="row">
-                        <div class="col-sm-4">
-                            <input type="radio" class="" name="address"> Địa chỉ 1
-                        </div>
-                        <div class="col-sm-4">
-                            <input type="radio" class="" name="address"> Địa chỉ 2
-                        </div>
+                        <?php foreach ($cs as $key => $value) : ?>
+                            <div class="col-sm-4">
+                                <input type="radio" class="" name="address" value="<?= $value['ma_co_so'] ?>" onclick="handleClick(this);"> <?= $value['ten_co_so'] ?>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
+                    <script>
+                        function handleClick(myRadio) {
+                            var ma_cs = myRadio.value;
+                            var xmlhttp = new XMLHttpRequest();
+                            $.ajax({
+                                url: '../DAO/nhanvien.php',
+                                data: {
+                                    ma_co_so: ma_cs
+                                }
+                            }).done(function(data) {
+                                var nhan_vien = JSON.parse(data);
+                                $('#select_nv').empty();
+                                $.each(nhan_vien, function(key, value) {
+                                    $('#select_nv').append($('<option>', { 
+                                        value: value.ma_nhan_vien,
+                                        text : value.ten_nhan_vien
+                                    }));
+                                })
+                            });
+                        }
+                    </script>
                 </div>
                 <div class="form-group mt-4">
                     <label for="">Chọn stylist *</label><br>
-                    <select class="form-select" aria-label="Default select example">
-                        <option value="1"> Nhân viên 1</option>
-                        <option value="2">Nhân viên 2</option>
-                        <option value="3">Nhân viên 3</option>
+                    <select class="form-select" aria-label="Default select example" id="select_nv">
+                    
                     </select>
                 </div>
                 <div class="form-group mt-4">
@@ -117,7 +143,7 @@
                 </div>
                 <button class="btn btn-danger mt-4 form-control">Đặt lịch</button>
             </form>
-            <div class="com-sm-3"></div>
+            <div class="col-12 col-sm-3"></div>
         </div>
         <div class="container pt-4 pb-4">
             <span>Địa chỉ</span>

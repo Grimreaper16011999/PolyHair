@@ -1,3 +1,6 @@
+<?php
+// require "../global.php";
+?>
 <!doctype html>
 <html lang="en">
 
@@ -8,9 +11,11 @@
     <!-- cdn icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="../resources/css/frontend/style.css">
+    <link rel="stylesheet" href="<?= $CSS_URL ?>/frontend/style.css">
     <title>Home</title>
 </head>
 
@@ -18,24 +23,26 @@
     <!-- Header -->
     <header class=" sticky-top" id="my-menu">
         <div class="top">
-            <div class="row container ">
-                <div class="col-6 col-sm-6 d-flex justify-content-start">
-                    <div>
-                        <a class="nav-link" href="index.php?login"> <i class="fab fa-facebook"></i></a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 col-sm-6 d-flex justify-content-start">
+                        <div>
+                            <a class="nav-link" href=""> <i class="fab fa-facebook"></i></a>
+                        </div>
+                        <div>
+                            <a class="nav-link" href=""> <i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div>
+                            <a class="nav-link" href=""> <i class="fab fa-youtube"></i></a>
+                        </div>
                     </div>
-                    <div>
-                        <a class="nav-link" href="index.php?login"> <i class="fab fa-instagram"></i></a>
-                    </div>
-                    <div>
-                        <a class="nav-link" href="index.php?login"> <i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 d-flex justify-content-end">
-                    <div class="m-0 p-0">
-                        <a class="nav-link" href="index.php?login"> <i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
-                    </div>
-                    <div class="m-0 p-0">
-                        <a class="nav-link" href="index.php?login"> <i class="fas fa-registered"></i> Đăng kí</a>
+                    <div class="col-6 col-sm-6 d-flex justify-content-end">
+                        <div class="m-0 p-0">
+                            <a class="nav-link" href="index.php?login"> <i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
+                        </div>
+                        <div class="m-0 p-0">
+                            <a class="nav-link" href="index.php?register"> <i class="fas fa-registered"></i> Đăng kí</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -43,8 +50,8 @@
         <div class="header_top container">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid  m-0 p-0">
-                    <a class="navbar-brand" href="index.php?home">
-                        <img src="../resources/img/logo2.png" alt="" width="50">
+                    <a class="navbar-brand m-0 p-0" href="index.php?home">
+                        <img src="<?= $IMG_URL ?>/logo2.png" alt="" width="80">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -73,20 +80,28 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="index.php?dat_lich"><i class="fas fa-user"></i> Đặt lịch</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.php?dien_dan"><i class="fas fa-comments"></i> Diễn đàn</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </div>
     </header>
-    <div class="content" style="min-height: 200px; background-color: #fff;" data-spy="scroll" data-target="#my-menu">
-        <marquee behavior="" direction="" style="color: red;">
+    <div class="content" style="min-height: 200px; background-color: #ccc;" data-spy="scroll" data-target="#my-menu">
+        <marquee behavior="" direction="" style="color: red;;">
             Đặt lịch ngay gọi số : <b>098 310 84 04</b> Mr Lộc
         </marquee>
-        <div class="">
+        <div class="main_content">
             <?php
             include $VIEW_NAME;
             ?>
+            <div class="datlich d-flex flex-column">
+                <a class="btn btn-success rounded-pill" href="https://zalo.me/0983108404">Chat zalo</a>
+                <a class="btn btn-primary rounded-pill" href="https://www.facebook.com/hoang.tanloc.73">Chat Facebook</a>
+                <a class="btn btn-danger rounded-pill" href="index.php?dat_lich">Đặt lịch ngay</a>
+            </div>
         </div>
     </div>
     <footer class="p-0">
@@ -171,7 +186,7 @@
                         <a class="nav-link" href="index.php?dat_lich"><i class="fas fa-user"></i> Đặt lịch</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?login"> <i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
+                        <a class="nav-link" href="index.php?dien_dan"><i class="fas fa-comments"></i> Diễn đàn</a>
                     </li>
                 </ul>
             </div>

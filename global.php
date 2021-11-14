@@ -1,6 +1,6 @@
 <?php
 // Các biến đường dẫn
-$ROOT_URL = "/DUAN1_WEBSITE_CAT_TOC";
+$ROOT_URL = "/PolyHair";
 $CSS_URL = "$ROOT_URL/resources/css";
 $IMG_URL = "$ROOT_URL/resources/img";
 $JS_URL = "$ROOT_URL/resources/js";
