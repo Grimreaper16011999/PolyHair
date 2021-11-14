@@ -3,8 +3,6 @@ require "../DAO/coso.php";
 require "../DAO/nhanvien.php";
 
 $cs = loai_select_All();
-
-
 ?>
 <link rel="stylesheet" href="../resources/css/frontend/dat_lich.css">
 <div class="test">
@@ -22,86 +20,11 @@ $cs = loai_select_All();
                     <input type="text" class="form-control" name="sdt" value="0983108404">
                 </div>
                 <div class="form-group mt-4">
-                    <label for="">Ngày cắt *</label><br>
-                    <input type="date" class="form-control" name="date">
-                </div>
-                <div class="form-group mt-4">
-                    <label for="">Giờ cắt *</label><br>
-                    <div class="row">
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group mt-4">
                     <label for="">Chọn nơi cắt *</label>
                     <div class="row">
                         <?php foreach ($cs as $key => $value) : ?>
                             <div class="col-sm-4">
-                                <input type="radio" class="" name="address" value="<?= $value['ma_co_so'] ?>" onclick="handleClick(this);"> <?= $value['ten_co_so'] ?>
+                                <input type="radio" class="" name="address" value="<?= $value['ma_co_so'] ?>" onclick="handleClick(this);"> <?= $value['dia_chi'] ?>
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -118,9 +41,9 @@ $cs = loai_select_All();
                                 var nhan_vien = JSON.parse(data);
                                 $('#select_nv').empty();
                                 $.each(nhan_vien, function(key, value) {
-                                    $('#select_nv').append($('<option>', { 
+                                    $('#select_nv').append($('<option>', {
                                         value: value.ma_nhan_vien,
-                                        text : value.ten_nhan_vien
+                                        text: value.ten_nhan_vien
                                     }));
                                 })
                             });
@@ -130,8 +53,23 @@ $cs = loai_select_All();
                 <div class="form-group mt-4">
                     <label for="">Chọn stylist *</label><br>
                     <select class="form-select" aria-label="Default select example" id="select_nv">
-                    
+
                     </select>
+                </div>
+                <div class="form-group mt-4">
+                    <label for="">Ngày cắt *</label><br>
+                    <input type="date" class="form-control" name="date">
+                </div>
+                <div class="form-group mt-4">
+                    <label for="">Giờ cắt *</label><br>
+                    <div class="row">
+                        <div class="col-sm-3 col-6">
+                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
+                        </div>
+                        <div class="col-sm-3 col-6">
+                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group mt-4">
                     <label for="">Chọn loại dịch vụ</label>

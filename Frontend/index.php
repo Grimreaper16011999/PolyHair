@@ -1,4 +1,5 @@
 <?php
+
 require "../global.php";
 extract($_REQUEST);
 if (exist_param("dat_lich")) {

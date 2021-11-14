@@ -60,14 +60,14 @@
 
         </div>
         <div class="col-sm-3 mt-4 dichvu">
-            <img src="img/dichvu/aside.jpg" alt="" width="100%">
+            <img src="../resources/img/dichvu/aside.jpg" alt="" width="100%">
             <h4 class="mt-4">Dịch vụ tại PolyHair</h4>
             <div class="row">
                 <div class="col-sm-12 mt-2">
                     <div class="row">
                         <div class="col-sm-4">
                             <a href="">
-                                <img src="img/dichvu/dichvu.jpg" alt="" width="100%">
+                                <img src="../resources/img/dichvu/dichvu.jpg" alt="" width="100%">
                             </a>
                         </div>
                         <div class="col-sm-8">
@@ -80,7 +80,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <a href="">
-                                <img src="img/dichvu/dichvu.jpg" alt="" width="100%">
+                                <img src="../resources/img/dichvu/dichvu.jpg" alt="" width="100%">
                             </a>
                         </div>
                         <div class="col-sm-8">
@@ -93,7 +93,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <a href="">
-                                <img src="img/dichvu/dichvu.jpg" alt="" width="100%">
+                                <img src="../resources/img/dichvu/dichvu.jpg" alt="" width="100%">
                             </a>
                         </div>
                         <div class="col-sm-8">
@@ -106,7 +106,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <a href="">
-                                <img src="img/dichvu/dichvu.jpg" alt="" width="100%">
+                                <img src="../resources/img/dichvu/dichvu.jpg" alt="" width="100%">
                             </a>
                         </div>
                         <div class="col-sm-8">
@@ -119,7 +119,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <a href="">
-                                <img src="img/dichvu/dichvu.jpg" alt="" width="100%">
+                                <img src="../resources/img/dichvu/dichvu.jpg" alt="" width="100%">
                             </a>
                         </div>
                         <div class="col-sm-8">
