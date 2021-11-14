@@ -1,0 +1,12 @@
+.header_top .row {
+    color: #ccc;
+}
+
+.header_top a {
+    color: #ccc;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: red !important;
+}

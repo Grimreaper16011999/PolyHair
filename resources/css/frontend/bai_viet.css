@@ -1,0 +1,17 @@
+.name{
+    padding-top: 15px;
+    font-weight: 600;
+}
+.mo_ta a{
+    text-decoration: none;
+    color: #333;
+}
+.mo_ta a:hover{
+    color: red;
+}
+.dichvu .name{
+    font-weight: 400;
+}
+.dichvu .price{
+    color: red;
+}

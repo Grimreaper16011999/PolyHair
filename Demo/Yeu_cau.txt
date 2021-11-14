@@ -1,0 +1,111 @@
+Buổi sau: Trình bày ý tưởng
+Giai đoạn lựa chọn đề tài
+    Đề tài số 5: Xây dựng website đặt lịch cắt tóc
+
+I. Giai đoạn khảo sát - Phân tích yêu cầu
+1. Khảo sát để thu thập thông tin: 
+- Thực trạng của hệ thống tại doanh nghiệp
+    PolyHair hiện tại là một thương hiệu mới cung cấp chuỗi dịch vụ cắt tóc trong khu vực Hà Nội, có các cơ sở cắt
+    tóc dành cho nam giới. Hiện tại chưa có website để khách hàng có thể đặt lịch cắt tóc trực tuyến tại các cơ sở.
+    Họ cũng mong muốn tổng hợp ý kiến người dùng về trải nghiệm dịch vụ của khách hàng để cải thiện dịch vụ tối ưu hơn.
+- Mục đích phát triển hệ thống mới là gì?
+    + Phát triển website đặt lịch cắt tóc giúp khách hàng chủ động hơn trong thời gian cắt tóc
+    + Giúp quảng bá thương hiệu đến khách hàng nhanh và dễ dàng hơn thông qua các công cụ truyền thông
+    + Giúp các cơ sở quản lý được lưu lượng khách hàng ngày và đánh giá được tình trạng cụ thể của các cơ sở thông qua
+    dữ liệu thu thập được
+    + Quản trị viên và nhân viên các cơ sở dễ nắm bắt được lưu lượng khách trong ngày từ đó chuẩn bị cơ sở và nhân lực
+    tốt nhất để đáp ứng nhu cầu khách hàng
+- Đối tượng sử dụng hệ thống là những ai?
+    + Quản trị viên của các cơ sở
+    + Đối tượng sử dụng là Nam giới mọi lứa tuổi
+    + Phạm vi: sống và đang làm việc trong khu vực Hà Nội
+- Nghiệp vụ hàng ngày của những đối tượng trong hệ thống?
+    + Nghiệp vụ đối với khách hàng:
+        * Không cần đăng nhập cũng có thể đặt lịch
+        * Xem các loại dịch vụ và combo cắt tóc tại website
+        * Xem các loại kiểu tóc mới nhất
+        * Xem các sản phẩm bán kèm
+        * Xem các tin tức và bài viết từ hệ thống
+        * Đặt lịch cắt tóc tại website để lại số điện thoại, chọn cơ sở, chọn combo, chọn người cắt, chọn giờ cắt
+        * Chỉ được đặt lịch trong khoảng 1 tháng tới
+        * Bình luận và phản hồi ở trên trang diễn đàn(chức năng này cần đăng kí thành viên mới sử dụng được)
+        * Chi tiết chức năng đặt lịch: 
+            - Khách hàng điền thông tin bao gồm số điện thoại
+            - Ngày đến cắt, chọn giờ đến cắt
+            - Lựa chọn combo hoặc dịch vụ cắt tóc
+            - Chọn người cắt
+            - Chọn cơ sở muốn đến cắt
+    + Nghiệp vụ đối với quản trị viên
+        * Xem tất cả các khách hàng đặt lịch cắt tóc trong ngày và trong vòng 1 tháng tới tại từng cơ sở
+        * Thêm sửa xoá các gói combo và sản phẩm về dịch vụ của thương hiệu
+        * Quản lý thành viên (bao gồm cả admin và người dùng)
+        * Tổng hợp tất cả các bình luận của khách hàng có thể xoá các bình luận tiêu cực
+        
+2. Đặc tả yêu cầu hệ thống
+    a. Mô hình hoá hệ thống với sơ đồ use case
+        Khách hàng: + Đặt lịch cắt tóc
+                    + Xem các dịch vụ
+                    + Xem sản phẩm 
+                    + Xem thông tin chi tiết
+                    + Xem bài viết
+                    + Quản lý tài khoản
+                    + Bình luận đánh giá trên diễn đàn
+
+        Quản trị:   + Quản lý lịch cắt
+                    + Quản lý nhân sự
+                    + Quản lý tài khoản
+                    + Quản lý sản phẩm
+                    + Quản lý bài viết
+                    + Quản lý bình luận
+                    + Thống kê 
+    b. Xây dựng mô hình ERD:
+        + Xác định các thực thể
+            1. Cơ sở (mã cơ sở, tên cơ sở, địa chỉ, url gg map)
+            2. Nhân viên (mã nhân viên, tên nhân viên, hình ảnh, thông tin, trạng thái, mã cơ sở)
+            3. Danh mục (mã danh mục, tên danh mục)
+            4. Dịch vụ (mã dịch vụ, tên dịch vụ, hình ảnh, giá, chi tiết, mã danh mục)
+            5. Sản Phẩm (mã sản phẩm, tên sản phẩm, hình ảnh, giá, chi tiết, mã danh mục)
+            6. Bài viết (mã bài viết, tên bài viết, mô tả, chi tiết, mã danh mục, ngày đăng, ngày sửa)
+            7. Tài khoản (mã tài khoản, tên tài khoản, mật khẩu, hình ảnh, email, số điện thoại, vai trò, trạng thái)
+            8. Khung giờ (mã khung giờ, tên khung giờ)
+            9. Đơn hàng (mã đơn, số điện thoại, mã dịch vụ, ngày đặt, mã khung giờ, mã cơ sở, mã nhân viên)
+            10. Đơn hàng nhanh (mã đơn, số điện thoại, nội dung chi tiết)
+            10. Bình luận (mã bình luận, nội dung bình luận, mã tài khoản, ngày bình luận)
+        + Vẽ sơ đồ ERD
+        + Xác định quan hệ
+            - 1 - N : Danh mục vs (Sản phẩm, Bài viết, Tài khoản) , Cơ sở vs (Nhân viên, Đơn hàng)
+3. Yêu cầu hệ thống
+    a. Website dành cho người tiêu dùng
+        - Cấu trúc của website phải chưa danh mục để khách hàng dễ dàng tìm kiếm
+        - Trang chủ hiển thị menu danh mục các loại dịch vụ và form đặt lịch nhanh
+        - Trang trưng bày dịch vụ, sản phẩm, bài viết hiển thị tất cả các dữ liệu thuộc cùng danh mục
+            item dịch vụ : hiển thị hình ảnh, tên, giá
+            item sản phẩm: hiển thị hình ảnh, tên, giá
+            item bài viết: hiển thị hình ảnh, tên, mô tả
+        Khi người dùng nhấn vào hình ảnh item sẽ chuyển sang trang chi tiết
+        - Trang chi tiết : Bao gồm ảnh, Tên, Giá (nếu có), Nội dung chi tiết
+        - Trang Đặt lịch : form đặt lịch gồn số điện thoại, chọn dịch vụ, chọn ngày giờ, chọn cơ sở, chọn nhân viên
+        - Trang quản lý tài khoản: Đăng nhập, đăng kí, quên tài khoản, đổi mật khẩu, cập nhật thông tin
+        - Trang bản đồ: Hiển thị địa chỉ các cơ sở và gg map
+    b. Website danh cho người quản trị
+        - Các trang quản lý
+            Cơ sở : thêm sửa xoá và danh sách
+            Nhân viên: thêm sửa xoá và danh sách
+            Danh mục: Thêm sửa xoá và danh sách
+            Dịch vụ: Thêm sửa xoá và danh sách phân trang
+            Sản phẩm: Thêm sửa xoá và danh sách phân trang
+            Tài khoản : xoá và phân trang
+            Bài viết: Thêm sửa xoá danh sách và phân trang
+            Khung giờ: Thêm sửa xoá
+            Đơn hàng: Xem, cập nhật trạng thái
+            Bình luận: Xem và xoá
+        - Tổng hợp thống kê
+            - Thống kê số lượng mục theo các danh mục
+            - Biểu đồ số lưu lượng khách theo tháng
+    c. Yêu cầu về môi trường công nghệ
+            - Website xây dựng với PHP và Mysql
+            - Boostrap 4 , Html css, Jquery
+
+
+Phân chia nhóm: Thiết kế giao diện + Viết Đặc tả báo cáo
+
