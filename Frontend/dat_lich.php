@@ -1,8 +1,7 @@
 <?php
 require "../DAO/coso.php";
-require "../DAO/nhanvien.php";
+$cs = coso_select_All();
 
-$cs = loai_select_All();
 ?>
 <link rel="stylesheet" href="../resources/css/frontend/dat_lich.css">
 <div class="test">
@@ -28,27 +27,6 @@ $cs = loai_select_All();
                             </div>
                         <?php endforeach; ?>
                     </div>
-                    <script>
-                        function handleClick(myRadio) {
-                            var ma_cs = myRadio.value;
-                            var xmlhttp = new XMLHttpRequest();
-                            $.ajax({
-                                url: '../DAO/nhanvien.php',
-                                data: {
-                                    ma_co_so: ma_cs
-                                }
-                            }).done(function(data) {
-                                var nhan_vien = JSON.parse(data);
-                                $('#select_nv').empty();
-                                $.each(nhan_vien, function(key, value) {
-                                    $('#select_nv').append($('<option>', {
-                                        value: value.ma_nhan_vien,
-                                        text: value.ten_nhan_vien
-                                    }));
-                                })
-                            });
-                        }
-                    </script>
                 </div>
                 <div class="form-group mt-4">
                     <label for="">Chọn stylist *</label><br>
@@ -111,3 +89,4 @@ $cs = loai_select_All();
         </div>
     </div>
 </div>
+<script src="<?=$JS_URL?>/dat_lich.js"></script>

@@ -1,6 +1,4 @@
-<?php
-// require "../global.php";
-?>
+
 <!doctype html>
 <html lang="en">
 

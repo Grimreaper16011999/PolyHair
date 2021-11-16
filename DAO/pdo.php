@@ -3,7 +3,7 @@ date_default_timezone_set("Asia/Ho_Chi_Minh");
 // Kết nối database
 function pdo_get_connection()
 {
-    $conn = new PDO("mysql: host=localhost; dbname=polyhair_database; charset=utf8", "root", "");
+    $conn = new PDO("mysql: host=localhost; dbname=poly_hair; charset=utf8", "root", "");
     // $conn = new PDO("mysql: host=sql302.byethost5.com; dbname=b5_29713039_Xshop; charset=utf8", "b5_29713039", "locloc1601");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $conn;

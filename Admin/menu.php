@@ -8,11 +8,11 @@
             </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fas fa-archive"></i>
-                <a class="nav-link d-inline-block" aria-current="page" href="">Quản trị cơ sở</a>
+                <a class="nav-link d-inline-block" aria-current="page" href="<?=$ADMIN_URL?>/co_so">Quản trị cơ sở</a>
             </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fas fa-users"></i>
-                <a class="nav-link d-inline-block" aria-current="page" href="">Quản lý nhân sự</a>
+                <a class="nav-link d-inline-block" aria-current="page" href="<?=$ADMIN_URL?>/nhan_vien">Quản lý nhân sự</a>
             </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fab fa-product-hunt"></i>
