@@ -14,9 +14,9 @@ try {
     }
     $firstIndex = ($page - 1) * $limit;
 
-    $list_nv = nv_select_All_limit($firstIndex, $limit);
+    $list_nv = dv_select_All_limit($firstIndex, $limit);
     // Phân trang lấy số trang 
-    $sql = "SELECT count(ma_nhan_vien) as total FROM nhan_vien";
+    $sql = "SELECT count(ma_dich_vu) as total FROM dich_vu";
     $countResult = pdo_query_one($sql);
     $count = $countResult['total'];
     $number = ceil($count / $limit);
@@ -25,8 +25,8 @@ try {
 }
 
 ?>
-<h3 class="text-center text-uppercase m-2">Quản trị Nhân viên</h3>
-<a href="index.php?add" class="btn btn-success mb-4">Thêm mới nhân viên</a>
+<h3 class="text-center text-uppercase m-2">Quản trị dịch vụ</h3>
+<a href="index.php?add" class="btn btn-success mb-4">Thêm mới dịch vụ</a>
 
 <form action="" method="post">
     <table class="table table-hover table-bordered table-light">
@@ -36,11 +36,9 @@ try {
                     <input type="checkbox" id="selectall">
                 </th>
                 <th>STT</th>
-                <th>Tên nhân viên</th>
+                <th>Tên dịch vụ</th>
                 <th>Hình ảnh</th>
-                <th>Thông tin</th>
-                <th>Trạng thái</th>
-                <th>Tên cơ sở</th>
+                <th>Giá</th>
                 <th colspan="2" class="text-center">Tác vụ</th>
             </tr>
 
@@ -50,21 +48,17 @@ try {
             <tbody>
                 <tr>
                     <td>
-                        <input type="checkbox" name="ma_nhan_vien[]" id="" value="<?= $row['ma_nhan_vien'] ?>" class="checkbox1">
+                        <input type="checkbox" name="ma_dich_vu[]" id="" value="<?= $row['ma_dich_vu'] ?>" class="checkbox1">
                     </td>
                     <td><?= ++$key ?></td>
-                    <td><?= $row['ten_nhan_vien'] ?></td>
+                    <td><?= $row['ten_dich_vu'] ?></td>
                     <td>
-                        <img src="<?= $IMG_URL ?>/nhanvien/<?= $row['hinh_anh'] ?>" alt="" width="100px">
+                        <img src="<?= $IMG_URL ?>/dichvu/<?= $row['hinh_anh'] ?>" alt="" width="80px">
                     </td>
-                    <td><?= $row['thong_tin'] ?></td>
-                    <td><?= ($row['trang_thai'] ==1)?'ON':'OFF' ?></td>
-                    <td>
-                        <?=coso_select_by_id($row['ma_co_so'])['ten_co_so'] ?>
-                    </td>
+                    <td><?= $row['gia'] ?></td>
                     <td class="text-center">
-                        <a href="index.php?edit&id=<?= $row['ma_nhan_vien'] ?>" class="btn btn-warning"><i class="far fa-edit" style="color: #fff;"></i></a>
-                        <a onclick="return confirm('Bạn có chắc muốn xoá không?')" class="btn btn-danger" href="index.php?delete&ma_nhan_vien=<?= $row['ma_nhan_vien'] ?>"><i class="far fa-trash-alt"></i></a>
+                        <a href="index.php?edit&id=<?= $row['ma_dich_vu'] ?>" class="btn btn-warning"><i class="far fa-edit" style="color: #fff;"></i></a>
+                        <a onclick="return confirm('Bạn có chắc muốn xoá không?')" class="btn btn-danger" href="index.php?delete&ma_dich_vu=<?= $row['ma_dich_vu'] ?>"><i class="far fa-trash-alt"></i></a>
                     </td>
                 </tr>
             </tbody>

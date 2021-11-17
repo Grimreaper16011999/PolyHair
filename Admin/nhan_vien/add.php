@@ -11,18 +11,18 @@
             <div class="form-group">
                 <label for="name">Hình ảnh</label>
                 <input type="file" class="form-control" name="hinh">
-                <p class="errors" style="color: red;"><?= isset($errors['hinh']) ? $errors['hinh'] : '' ?></p>
+                <p class="errors" style="color: red;"><?= isset($errors['hinh_anh']) ? $errors['hinh_anh'] : '' ?></p>
             </div>
             <div class="form-group">
                 <label for="name">Trạng thái</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="trang_thai" id="trang_thai1" checked>
+                    <input class="form-check-input" type="radio" name="trang_thai" value="1" checked>
                     <label class="form-check-label" for="trang_thai1" style="color: green;">
                         On
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="trang_thai" id="trang_thai2">
+                    <input class="form-check-input" type="radio" name="trang_thai" value="0">
                     <label class="form-check-label" for="trang_thai2" style="color: red;">
                         Off
                     </label>

@@ -15,7 +15,7 @@ function nv_update($ten_nhan_vien, $hinh_anh, $thong_tin, $trang_thai, $ma_co_so
 // xoá
 function nv_delete($ma_nhan_vien)
 {
-    $sql = "DELETE FROM co_so WHERE ma$ma_nhan_vien=?";
+    $sql = "DELETE FROM nhan_vien WHERE ma_nhan_vien=?";
     // Nếu mã loại là 1 mảng
     if (is_array($ma_nhan_vien)) {
         foreach ($ma_nhan_vien as $ma) {
@@ -38,7 +38,7 @@ function nv_select_All_limit($firstindex,$limit){
 // Truy vấn theo mã nhân viên
 function nv_select_by_id($ma_nhan_vien)
 {
-    $sql = "SELECT *FROM co_so WHERE ma$ma_nhan_vien=?";
+    $sql = "SELECT *FROM nhan_vien WHERE ma_nhan_vien=?";
     return pdo_query_one($sql, $ma_nhan_vien);
 }
 

@@ -1,7 +1,6 @@
 <?php
 require "../../global.php";
-require "../../DAO/nhanvien.php";
-require "../../DAO/coso.php";
+require "../../DAO/khuyenmai.php";
 
 
 extract($_REQUEST);
@@ -15,9 +14,10 @@ if (exist_param("add")) {
         extract($_POST);
         $ext_img = ['jpg', 'png'];
         $errors = [
-            'ten_nhan_vien' => '',
-            'thong_tin' => '',
-            'hinh_anh' => '',
+            'ten_khuyen_mai' => '',
+            'gia' => '',
+            'so_luong' => '',
+            'chi_tiet' => '',
             'url' => ''
         ];
 
@@ -34,19 +34,34 @@ if (exist_param("add")) {
                 $errors['hinh_anh'] = "Bạn phải chọn file <=2MB";
             }
         } else {
-            $hinh_anh = '1.jpg';
+            $hinh_anh = 'mau toc 1.jpg';
         }
-        if ($ten_nhan_vien == null) {
-            $errors['ten_nhan_vien'] = 'Dữ liệu không được để trống';
+        if ($ten_khuyen_mai == null) {
+            $errors['ten_khuyen_mai'] = 'Dữ liệu không được để trống';
         }
-        if ($thong_tin == null) {
-            $errors['thong_tin'] = 'Dữ liệu không được để trống';
+        if ($chi_tiet == null) {
+            $errors['chi_tiet'] = 'Dữ liệu không được để trống';
+        }
+        if ($gia == null) {
+            $errors['gia'] = 'Dữ liệu không được để trống';
+        } else {
+            if (!is_numeric($gia) || $gia < 0 || $gia > 100) {
+                $errors['gia'] = 'mức giá phải là số và từ 0 đến 100';
+            }
+        }
+        if ($so_luong == null) {
+            $errors['so_luong'] = 'Dữ liệu không được để trống';
+        } else {
+            if (!is_numeric($so_luong)) {
+                $errors['so_luong'] = 'Số lượng phải là số';
+            }
         }
 
+
         if (!array_filter($errors)) {
-            nv_insert($ten_nhan_vien, $hinh_anh, $thong_tin, $trang_thai, $ma_co_so);
+            km_insert($ten_khuyen_mai,  $hinh_anh,  $gia,  $chi_tiet,  $so_luong);
             if ($file['size'] != 0) {
-                move_uploaded_file($file['tmp_name'], "../../resources/img/nhanvien/" . $hinh_anh);
+                move_uploaded_file($file['tmp_name'], "../../resources/img/khuyenmai/" . $hinh_anh);
             }
             $MESSAGE = "Thêm dữ liệu thành công";
             header('location: index.php?msg=' . $MESSAGE);
@@ -54,14 +69,15 @@ if (exist_param("add")) {
     }
 } elseif (exist_param("edit")) {
     $VIEW_NAME = 'edit.php';
-    $nv = nv_select_by_id($_GET['id']);
+    $km = km_select_by_id($_GET['id']);
     if (isset($_POST['btn_edit'])) {
         extract($_POST);
         $ext_img = ['jpg', 'png'];
         $errors = [
-            'ten_nhan_vien' => '',
-            'thong_tin' => '',
-            'hinh_anh' => '',
+            'ten_khuyen_mai' => '',
+            'gia' => '',
+            'so_luong' => '',
+            'chi_tiet' => '',
             'url' => ''
         ];
 
@@ -78,19 +94,34 @@ if (exist_param("add")) {
                 $errors['hinh_anh'] = "Bạn phải chọn file <=2MB";
             }
         } else {
-            $hinh_anh = $nv['hinh_anh'];
+            $hinh_anh = $km['hinh_anh'];
         }
-        if ($ten_nhan_vien == null) {
-            $errors['ten_nhan_vien'] = 'Dữ liệu không được để trống';
+        if ($ten_khuyen_mai == null) {
+            $errors['ten_khuyen_mai'] = 'Dữ liệu không được để trống';
         }
-        if ($thong_tin == null) {
-            $errors['thong_tin'] = 'Dữ liệu không được để trống';
+        if ($chi_tiet == null) {
+            $errors['chi_tiet'] = 'Dữ liệu không được để trống';
+        }
+        if ($gia == null) {
+            $errors['gia'] = 'Dữ liệu không được để trống';
+        } else {
+            if (!is_numeric($gia) || $gia < 0 || $gia > 100) {
+                $errors['gia'] = 'mức giá phải là số và từ 0 đến 100';
+            }
+        }
+        if ($so_luong == null) {
+            $errors['so_luong'] = 'Dữ liệu không được để trống';
+        } else {
+            if (!is_numeric($so_luong)) {
+                $errors['so_luong'] = 'Số lượng phải là số';
+            }
         }
 
+
         if (!array_filter($errors)) {
-            nv_update($ten_nhan_vien, $hinh_anh, $thong_tin, $trang_thai, $ma_co_so, $ma_nhan_vien);
+            km_update($ten_khuyen_mai,  $hinh_anh,  $gia,  $chi_tiet,  $so_luong,  $ma_khuyen_mai);
             if ($file['size'] != 0) {
-                move_uploaded_file($file['tmp_name'], "../../resources/img/nhanvien/" . $hinh_anh);
+                move_uploaded_file($file['tmp_name'], "../../resources/img/khuyenmai/" . $hinh_anh);
             }
             $MESSAGE = "Sửa dữ liệu thành công";
             header('location: index.php?msg=' . $MESSAGE);
@@ -98,7 +129,7 @@ if (exist_param("add")) {
     }
 } elseif (exist_param("delete")) {
     try {
-        nv_delete($ma_nhan_vien);
+        km_delete($ma_khuyen_mai);
         $MESSAGE = 'Xoá thành công';
     } catch (Exception $exc) {
         $MESSAGE = "Xoá thất bại";
