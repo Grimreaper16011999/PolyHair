@@ -38,7 +38,7 @@ $km = km_select_by_id($_GET['id']);
             <div class="form-group">
                 <label for="name">Chi tiết</label>
                 <span class="errors" style="color: red;">
-                    <textarea class="form-control" name="chi_tiet" id="" cols="30" rows="10"><?=$km['chi_tiet']?></textarea>
+                    <textarea class="form-control" name="chi_tiet" id="summernote" cols="30" rows="10"><?=$km['chi_tiet']?></textarea>
                     <?= isset($errors['chi_tiet']) ? $errors['chi_tiet'] : '' ?>
             </div>
         </div>

@@ -32,7 +32,7 @@
             </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fas fa-bahai"></i>
-                <a class="nav-link d-inline-block active" href="<?= $ADMIN_URL ?>/khuyen_mai" >CT khuyến mãi</a>
+                <a class="nav-link d-inline-block" href="<?= $ADMIN_URL ?>/khuyen_mai" >CT khuyến mãi</a>
             </li>
             
             <li class="nav-item text-uppercase border-bottom">
