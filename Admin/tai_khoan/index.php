@@ -19,6 +19,7 @@ if (exist_param("add")) {
             're_mat_khau' => '',
             'hinh_anh' => '',
             'email' => '',
+            'ho_ten'=>''
         ];
 
         if ($_FILES['hinh']['size'] > 0) {
@@ -35,6 +36,9 @@ if (exist_param("add")) {
             }
         } else {
             $hinh_anh = 'tk.jpg';
+        }
+        if ($ho_ten == null) {
+            $errors['ho_ten'] = 'Dữ liệu không được để trống';
         }
         if ($ten_tai_khoan == null) {
             $errors['ten_tai_khoan'] = 'Dữ liệu không được để trống';
@@ -54,7 +58,7 @@ if (exist_param("add")) {
         }
 
         if (!array_filter($errors)) {
-            tk_insert($ten_tai_khoan, $hinh_anh, $mat_khau, $email, $trang_thai, $vai_tro);
+            tk_insert($ten_tai_khoan,$ho_ten, $hinh_anh, $mat_khau, $email, $trang_thai, $vai_tro);
             if ($file['size'] != 0) {
                 move_uploaded_file($file['tmp_name'], "../../resources/img/taikhoan/" . $hinh_anh);
             }
@@ -74,6 +78,7 @@ if (exist_param("add")) {
             're_mat_khau' => '',
             'hinh_anh' => '',
             'email' => '',
+            'ho_ten'=>''
         ];
 
         if ($_FILES['hinh']['size'] > 0) {
@@ -94,6 +99,9 @@ if (exist_param("add")) {
         if ($ten_tai_khoan == null) {
             $errors['ten_tai_khoan'] = 'Dữ liệu không được để trống';
         }
+        if ($ho_ten == null) {
+            $errors['ho_ten'] = 'Dữ liệu không được để trống';
+        }
         if ($email == null) {
             $errors['email'] = 'Dữ liệu không được để trống';
         }
@@ -109,7 +117,7 @@ if (exist_param("add")) {
         }
 
         if (!array_filter($errors)) {
-            tk_update($ten_tai_khoan, $hinh_anh, $email, $trang_thai, $vai_tro, $ma_tai_khoan);
+            tk_update($ten_tai_khoan,$ho_ten,$hinh_anh, $email, $trang_thai, $vai_tro, $ma_tai_khoan);
             if ($file['size'] != 0) {
                 move_uploaded_file($file['tmp_name'], "../../resources/img/taikhoan/" . $hinh_anh);
             }

@@ -41,3 +41,9 @@ function km_select_by_id($ma_khuyen_mai)
     $sql = "SELECT *FROM khuyen_mai WHERE ma_khuyen_mai=?";
     return pdo_query_one($sql, $ma_khuyen_mai);
 }
+// Kiểm tra sự tồn tại của loại hàng 
+function km_exist($ma_khuyen_mai)
+{
+    $sql = "SELECT count(*) FROM khuyen_mai WHERE ma_khuyen_mai=?";
+    return pdo_query_value($sql, $ma_khuyen_mai) > 0;
+}

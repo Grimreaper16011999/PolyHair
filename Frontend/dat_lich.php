@@ -1,6 +1,8 @@
 <?php
-require "../DAO/coso.php";
+
 $cs = coso_select_All();
+$kg = kg_select_All();
+$dv = dv_select_All();
 
 ?>
 <link rel="stylesheet" href="../resources/css/frontend/dat_lich.css">
@@ -11,53 +13,67 @@ $cs = coso_select_All();
             <div class="col-12 col-sm-3"></div>
             <form action="" method="post" class="col-12 col-sm-6" class="border border-1">
                 <div class="form-group mt-4">
-                    <label for="">Tên của bạn</label><br>
-                    <input type="text" class="form-control" name="name" value="Tên tài khoản">
+                    <label for="">Mã tài khoản</label><br>
+                    <input type="text" class="form-control" name="ma_tai_khoan" value="20" readonly>
                 </div>
                 <div class="form-group mt-4">
                     <label for="">Số điện thoại</label><br>
-                    <input type="text" class="form-control" name="sdt" value="0983108404">
+                    <input type="text" class="form-control" name="so_dien_thoai" value="0983108404">
+                    <span class="" style="color: red;"><?= isset($errors['so_dien_thoai']) ? $errors['so_dien_thoai'] : '' ?></span>
                 </div>
                 <div class="form-group mt-4">
                     <label for="">Chọn nơi cắt *</label>
                     <div class="row">
                         <?php foreach ($cs as $key => $value) : ?>
                             <div class="col-sm-4">
-                                <input type="radio" class="" name="address" value="<?= $value['ma_co_so'] ?>" onclick="handleClick(this);"> <?= $value['dia_chi'] ?>
+                                <input type="radio" class="" name="ma_co_so" value="<?= $value['ma_co_so'] ?>" onclick="handleClick(this);"> <?= $value['dia_chi'] ?>
                             </div>
                         <?php endforeach; ?>
                     </div>
+                    <span class="" style="color: red;"><?= isset($errors['ma_co_so']) ? $errors['ma_co_so'] : '' ?></span>
                 </div>
                 <div class="form-group mt-4">
                     <label for="">Chọn stylist *</label><br>
-                    <select class="form-select" aria-label="Default select example" id="select_nv">
-
+                    <select class="form-select" aria-label="Default select example" name="ma_nhan_vien" id="select_nv">
+                        <option value="">Mời bạn chọn cơ sở</option>
                     </select>
                 </div>
                 <div class="form-group mt-4">
                     <label for="">Ngày cắt *</label><br>
-                    <input type="date" class="form-control" name="date">
+                    <input type="date" class="form-control" name="ngay_cat">
+                    <span class="" style="color: red;"><?= isset($errors['ngay_cat']) ? $errors['ngay_cat'] : '' ?></span>
+
                 </div>
                 <div class="form-group mt-4">
                     <label for="">Giờ cắt *</label><br>
                     <div class="row">
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <input type="radio" class="" name="gio"> 8h:00- 9h:00
-                        </div>
+                        <?php foreach ($kg as $key => $value) : ?>
+                            <div class="col-sm-3 col-6">
+                                <input type="radio" class="" name="ma_khung_gio" value="<?= $value['ma_khung_gio'] ?>"> <?= $value['thoi_gian'] ?>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
+                    <span class="" style="color: red;"><?= isset($errors['ma_khung_gio']) ? $errors['ma_khung_gio'] : '' ?></span>
+
                 </div>
                 <div class="form-group mt-4">
                     <label for="">Chọn loại dịch vụ</label>
-                    <select class="form-select" aria-label="Default select example">
-                        <option value="1"> Dịch vụ 1</option>
-                        <option value="2">Dịch vụ 2</option>
-                        <option value="3">Dịch vụ 3</option>
+                    <select class="form-select" aria-label="Default select example" name="ma_dich_vu">
+                        <?php foreach ($dv as $key => $value) : ?>
+                            <option value="<?= $value['ma_dich_vu'] ?>"><?= $value['ten_dich_vu'] ?></option>
+                        <?php endforeach; ?>
+
                     </select>
                 </div>
-                <button class="btn btn-danger mt-4 form-control">Đặt lịch</button>
+                <div class="form-group nt-4">
+                    <label for="">Ghi chú</label>
+                    <textarea name="ghi_chu" id="" cols="30" rows="10" class="form-control"></textarea>
+                </div>
+                <div class="form-group nt-4">
+                    <label for="">Mã khuyến mãi</label>
+                    <input type="text" name="ma_khuyen_mai" class="form-control" placeholder="nhập mã khuyến mãi ">
+                </div>
+                <button class="btn btn-danger mt-4 form-control" name="btn_dat_lich">Đặt lịch</button>
             </form>
             <div class="col-12 col-sm-3"></div>
         </div>
@@ -89,4 +105,4 @@ $cs = coso_select_All();
         </div>
     </div>
 </div>
-<script src="<?=$JS_URL?>/dat_lich.js"></script>
+<script src="<?= $JS_URL ?>/dat_lich.js"></script>

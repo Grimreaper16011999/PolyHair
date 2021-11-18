@@ -6,25 +6,33 @@
                 <i class="fas fa-home"></i>
                 <a class="nav-link d-inline-block" aria-current="page" href="<?= $ADMIN_URL ?>/trang_chinh">Home</a>
             </li>
-            <li class="nav-item text-uppercase border-bottom">
+            <li class="nav-item text-uppercase border-bottom ">
                 <i class="fas fa-archive"></i>
-                <a class="nav-link d-inline-block" aria-current="page" href="<?= $ADMIN_URL ?>/co_so">Quản trị cơ sở</a>
+                <a class="active nav-link d-inline-block" aria-current="page" href="<?= $ADMIN_URL ?>/co_so">Quản trị cơ sở</a>
             </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fas fa-users"></i>
-                <a class="nav-link d-inline-block" aria-current="page" href="<?= $ADMIN_URL ?>/nhan_vien">Quản lý nhân sự</a>
+                <a class="active nav-link d-inline-block" aria-current="page" href="<?= $ADMIN_URL ?>/nhan_vien">Quản lý nhân sự</a>
             </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fab fa-servicestack"></i>
-                <a class="nav-link d-inline-block" aria-current="page" href="<?= $ADMIN_URL ?>/dich_vu">Quản lý dịch vụ</a>
+                <a class="nav-link d-inline-block active" aria-current="page" href="<?= $ADMIN_URL ?>/dich_vu">Quản lý dịch vụ</a>
             </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fas fa-user"></i>
-                <a class="nav-link d-inline-block" href="<?= $ADMIN_URL ?>/tai_khoan">Quản lý tài khoản</a>
+                <a class="nav-link d-inline-block active" href="<?= $ADMIN_URL ?>/tai_khoan">Quản lý tài khoản</a>
+            </li>
+            <li class="nav-item text-uppercase border-bottom">
+                <i class="fas fa-clock"></i>
+                <a class="nav-link d-inline-block active" href="<?= $ADMIN_URL ?>/khung_gio">Khung giờ</a>
             </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fab fa-product-hunt"></i>
                 <a class="nav-link d-inline-block" href="">Quản Trị Sản Phẩm</a>
+            </li>
+            <li class="nav-item text-uppercase border-bottom">
+                <i class="fab fa-product-hunt"></i>
+                <a class="nav-link d-inline-block" href="">Các kiểu tóc</a>
             </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fas fa-book"></i>
@@ -32,13 +40,10 @@
             </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fas fa-bahai"></i>
-                <a class="nav-link d-inline-block" href="<?= $ADMIN_URL ?>/khuyen_mai" >CT khuyến mãi</a>
+                <a class="nav-link d-inline-block active" href="<?= $ADMIN_URL ?>/khuyen_mai">CT khuyến mãi</a>
             </li>
-            
-            <li class="nav-item text-uppercase border-bottom">
-                <i class="fas fa-paper-plane"></i>
-                <a class="nav-link d-inline-block" href="">Quản lý lịch hẹn</a>
-            </li>
+
+
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fas fa-comments"></i>
                 <a class="nav-link d-inline-block" href="">Quản lý bình luận</a>

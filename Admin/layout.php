@@ -37,12 +37,19 @@
                             <b>ADMIN</b>
                         </h4>
                     </div>
-                    <div class="col col-sm-6 pt-3">
+                    <div class="col col-sm-2 pt-3  border-end">
                         <span class="nav-item text-uppercase">
                             <i class="fas fa-undo"></i>
                             <a class="nav-link d-inline-block" href="">Về trang chủ</a>
                         </span>
                     </div>
+                    <div class="col col-sm-2 pt-3">
+                        <span class="nav-item text-uppercase">
+                            <i class="fas fa-paper-plane"></i>
+                            <a class="nav-link d-inline-block" href="<?= $ADMIN_URL ?>/lich_hen">Quản lý lịch hẹn</a>
+                        </span>
+                    </div>
+                    <div class="col-sm-2"></div>
                     <div class="col col-sm-2 pt-3 text-right" style="font-size: 25px;">
                         <i class="fas fa-bell"></i>
                     </div>
@@ -70,7 +77,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="<?=$JS_URL?>/layout_admin.js"></script>
+    <script src="<?= $JS_URL ?>/layout_admin.js"></script>
 </body>
 
 </html>

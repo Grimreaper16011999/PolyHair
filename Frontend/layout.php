@@ -1,4 +1,9 @@
+<?php
+if (isset($_GET['msg'])) {
+    echo "<script type='text/javascript'>alert('$msg');</script>";
+}
 
+?>
 <!doctype html>
 <html lang="en">
 

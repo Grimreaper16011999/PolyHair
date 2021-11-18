@@ -2,16 +2,16 @@
 require_once "pdo.php";
 
 // Thêm tài khoản
-function tk_insert($ten_tai_khoan, $hinh_anh, $mat_khau, $email, $trang_thai, $vai_tro){
-    $sql = "INSERT INTO tai_khoan(ten_tai_khoan, hinh_anh, mat_khau, email, trang_thai, vai_tro) VALUES(?,?,?,?,?,?)";
-    pdo_excute($sql,$ten_tai_khoan, $hinh_anh, $mat_khau, $email, $trang_thai, $vai_tro);
+function tk_insert($ten_tai_khoan,$ho_ten, $hinh_anh, $mat_khau, $email, $trang_thai, $vai_tro){
+    $sql = "INSERT INTO tai_khoan(ten_tai_khoan,ho_ten, hinh_anh, mat_khau, email, trang_thai, vai_tro) VALUES(?,?,?,?,?,?,?)";
+    pdo_excute($sql,$ten_tai_khoan,$ho_ten, $hinh_anh, $mat_khau, $email, $trang_thai, $vai_tro);
 }
 
 
 // Update tài khoản
-function tk_update($ten_tai_khoan, $hinh_anh, $email, $trang_thai, $vai_tro,$ma_tai_khoan){
-    $sql = "UPDATE tai_khoan SET ten_tai_khoan=?, hinh_anh=?, email=?, trang_thai=?, vai_tro=?  WHERE ma_tai_khoan=?";
-    pdo_excute($sql,$ten_tai_khoan, $hinh_anh, $email, $trang_thai, $vai_tro,$ma_tai_khoan);
+function tk_update($ten_tai_khoan,$ho_ten, $hinh_anh, $email, $trang_thai, $vai_tro,$ma_tai_khoan){
+    $sql = "UPDATE tai_khoan SET ten_tai_khoan=?, ho_ten=?, hinh_anh=?, email=?, trang_thai=?, vai_tro=?  WHERE ma_tai_khoan=?";
+    pdo_excute($sql,$ten_tai_khoan,$ho_ten, $hinh_anh, $email, $trang_thai, $vai_tro,$ma_tai_khoan);
 }
 
 // Xoá tài khoản

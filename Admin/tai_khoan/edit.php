@@ -14,6 +14,12 @@ $tk = tk_select_by_id($_GET['id'])
                 <input type="text" class="form-control" placeholder="Auto" readonly name="ma_tai_khoan" value="<?= $tk['ma_tai_khoan'] ?>">
             </div>
             <div class="form-group">
+                <label for="name">Họ và tên</label>
+                <input type="text" class="form-control" placeholder="Họ tên" name="ho_ten" value="<?= isset($ho_ten) ? $ho_ten : '' ?>">
+                <p class="errors" style="color: red;"><?= isset($errors['ho_ten']) ? $errors['ho_ten'] : '' ?></p>
+
+            </div>
+            <div class="form-group">
                 <label for="name">Tên tài khoản</label>
                 <input type="text" class="form-control" placeholder="Tên tài khoản" name="ten_tai_khoan" value="<?= $tk['ten_tai_khoan'] ?>" readonly>
                 <p class="errors" style="color: red;"><?= isset($errors['ten_tai_khoan']) ? $errors['ten_tai_khoan'] : '' ?></p>

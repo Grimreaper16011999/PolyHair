@@ -7,6 +7,7 @@
                 <label for="name">Mã tài khoản</label>
                 <input type="text" class="form-control" placeholder="Auto" readonly name="ma_tai_khoan" value="<?= isset($ma_tai_khoan) ? $ma_tai_khoan : '' ?>">
             </div>
+            
 
             <div class="form-group">
                 <label for="name">Hình ảnh</label>
