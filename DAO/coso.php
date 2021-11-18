@@ -11,7 +11,7 @@ function coso_insert($ten_co_so, $dia_chi, $so_dien_thoai, $url)
 // Update cơ sở
 function coso_update($ten_co_so, $dia_chi, $so_dien_thoai, $url, $ma_co_so)
 {
-    $ngay_sua =  date('Y-m-d H:i:s');
+    // $ngay_sua =  date('Y-m-d H:i:s');
     $sql = "UPDATE co_so SET ten_co_so=?, dia_chi =?, so_dien_thoai=?, url=? WHERE ma_co_so=?";
     pdo_excute($sql, $ten_co_so, $dia_chi, $so_dien_thoai, $url, $ma_co_so);
 }

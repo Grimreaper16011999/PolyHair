@@ -28,7 +28,7 @@
             </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fab fa-product-hunt"></i>
-                <a class="nav-link d-inline-block" href="<?= $ADMIN_URL ?>/san_pham">Quản Trị Sản Phẩm</a>
+                <a class="nav-link d-inline-block active" href="<?= $ADMIN_URL ?>/san_pham">Quản Trị Sản Phẩm</a>
             </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fab fa-product-hunt"></i>
@@ -36,7 +36,7 @@
             </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fas fa-book"></i>
-                <a class="nav-link d-inline-block" href="">Quản trị Bài viết</a>
+                <a class="nav-link d-inline-block active" href="<?= $ADMIN_URL ?>/bai_viet">Quản trị Bài viết</a>
             </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fas fa-bahai"></i>
