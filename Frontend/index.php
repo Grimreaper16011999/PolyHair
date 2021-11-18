@@ -54,6 +54,9 @@ if (exist_param("dat_lich")) {
     $VIEW_NAME = "login.php";
 } elseif (exist_param("chi_tiet")) {
     $VIEW_NAME = "chi_tiet.php";
+}
+elseif (exist_param("chi_tiet_bai_viet")) {
+    $VIEW_NAME = "chi_tiet_bai_viet.php";
 } elseif (exist_param("khuyen_mai")) {
     $VIEW_NAME = "khuyen_mai.php";
 } elseif (exist_param("style")) {

@@ -3,61 +3,7 @@
     <span>Trang chủ / Bài viết</span>
     <div class="row">
         <div class="col-sm-9">
-            <div class="row">
-                <div class="col-sm-4 pt-4">
-                    <div class="col-sm-12">
-                        <div class="img">
-                            <img src="../resources/img/baiviet/1.jpg" alt="" width="100%">
-                        </div>
-                        <div class="name">Người dân Thủ đô ùn ùn đi cắt tóc ngày đầu nới lỏng cách ly xã hội</div>
-                        <div class="mo_ta">
-                            <a href="index.php?chi_tiet_bai_viet">
-                                Một số hình ảnh và bài viết mà phòng viên báo 24h đã đến Salon [...]
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 pt-4">
-                    <div class="col-sm-12">
-                        <div class="img">
-                            <img src="../resources/img/baiviet/1.jpg" alt="" width="100%">
-                        </div>
-                        <div class="name">Người dân Thủ đô ùn ùn đi cắt tóc ngày đầu nới lỏng cách ly xã hội</div>
-                        <div class="mo_ta">
-                            <a href="">
-                                Một số hình ảnh và bài viết mà phòng viên báo 24h đã đến Salon [...]
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 pt-4">
-                    <div class="col-sm-12">
-                        <div class="img">
-                            <img src="../resources/img/baiviet/1.jpg" alt="" width="100%">
-                        </div>
-                        <div class="name">Người dân Thủ đô ùn ùn đi cắt tóc ngày đầu nới lỏng cách ly xã hội</div>
-                        <div class="mo_ta">
-                            <a href="">
-                                Một số hình ảnh và bài viết mà phòng viên báo 24h đã đến Salon [...]
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 pt-4">
-                    <div class="col-sm-12">
-                        <div class="img">
-                            <img src="../resources/img/baiviet/1.jpg" alt="" width="100%">
-                        </div>
-                        <div class="name">Người dân Thủ đô ùn ùn đi cắt tóc ngày đầu nới lỏng cách ly xã hội</div>
-                        <div class="mo_ta">
-                            <a href="">
-                                Một số hình ảnh và bài viết mà phòng viên báo 24h đã đến Salon [...]
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            Nội dung bài viết
         </div>
         <div class="col-sm-3 mt-4 dichvu">
             <img src="../resources/img/dichvu/aside.jpg" alt="" width="100%">

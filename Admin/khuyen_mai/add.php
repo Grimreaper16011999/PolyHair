@@ -33,9 +33,9 @@
         <div class="col-sm-12">
             <div class="form-group">
                 <label for="name">Chi tiết</label>
-                <span class="errors" style="color: red;">
-                    <textarea class="form-control" name="chi_tiet" id="summernote" cols="30" rows="10"></textarea>
-                    <?= isset($errors['chi_tiet']) ? $errors['chi_tiet'] : '' ?>
+
+                <textarea class="form-control" name="chi_tiet" id="summernote" cols="30" rows="10"></textarea>
+                <span class="errors" style="color: red;"> <?= isset($errors['chi_tiet']) ? $errors['chi_tiet'] : '' ?></span>
             </div>
         </div>
     </div>
