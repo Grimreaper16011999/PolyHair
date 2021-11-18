@@ -28,11 +28,11 @@
             </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fab fa-product-hunt"></i>
-                <a class="nav-link d-inline-block" href="">Quản Trị Sản Phẩm</a>
+                <a class="nav-link d-inline-block" href="<?= $ADMIN_URL ?>/san_pham">Quản Trị Sản Phẩm</a>
             </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fab fa-product-hunt"></i>
-                <a class="nav-link d-inline-block" href="<?= $ADMIN_URL ?>/kieu_toc">Các kiểu tóc</a>
+                <a class="nav-link d-inline-block active"  href="<?= $ADMIN_URL ?>/kieu_toc">Các kiểu tóc</a>
             </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fas fa-book"></i>
