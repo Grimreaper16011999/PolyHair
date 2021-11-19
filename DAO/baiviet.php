@@ -42,4 +42,9 @@ function bv_select_by_id($ma_bai_viet)
     $sql = "SELECT *FROM bai_viet WHERE ma_bai_viet=?";
     return pdo_query_one($sql, $ma_bai_viet);
 }
+function bv_count(){
+    $sql = "SELECT COUNT(ma_bai_viet) as total FROM bai_viet";
+    return pdo_query_one($sql);
+}
+
 

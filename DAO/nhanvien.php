@@ -53,3 +53,7 @@ if (isset($_GET['ma_co_so'])) {
     $rs = nv_select_by_macs($ma_cs);
     echo json_encode($rs);
 }
+function nv_count(){
+    $sql = "SELECT COUNT(ma_nhan_vien) as total FROM nhan_vien";
+    return pdo_query_one($sql);
+}

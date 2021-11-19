@@ -46,3 +46,8 @@ function kt_select_by_id($ma_kieu_toc)
     $sql = "SELECT *FROM kieu_toc WHERE ma_kieu_toc=?";
     return pdo_query_one($sql, $ma_kieu_toc);
 }
+function kt_count(){
+    $sql = "SELECT COUNT(ma_kieu_toc) as total FROM kieu_toc";
+    return pdo_query_one($sql);
+}
+

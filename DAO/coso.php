@@ -45,3 +45,9 @@ function coso_select_by_id($ma_co_so)
     $sql = "SELECT *FROM co_so WHERE ma_co_so=?";
     return pdo_query_one($sql, $ma_co_so);
 }
+
+// Đến số lượng bản ghi
+function coso_count(){
+    $sql = "SELECT COUNT(ma_co_so) as total FROM co_so";
+    return pdo_query_one($sql);
+}

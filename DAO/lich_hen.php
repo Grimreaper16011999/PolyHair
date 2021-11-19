@@ -49,3 +49,7 @@ function lich_hen_select_by_id($ma_don)
     $sql = "SELECT *FROM dat_lich WHERE ma_don=?";
     return pdo_query_one($sql, $ma_don);
 }
+function lh_count(){
+    $sql = "SELECT COUNT(ma_don) as total FROM dat_lich";
+    return pdo_query_one($sql);
+}

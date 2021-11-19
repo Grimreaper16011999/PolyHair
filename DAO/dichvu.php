@@ -47,4 +47,7 @@ function dv_select_by_id($ma_dich_vu)
     $sql = "SELECT *FROM dich_vu WHERE ma_dich_vu=?";
     return pdo_query_one($sql, $ma_dich_vu);
 }
-
+function dv_count(){
+    $sql = "SELECT COUNT(ma_dich_vu) as total FROM dich_vu";
+    return pdo_query_one($sql);
+}

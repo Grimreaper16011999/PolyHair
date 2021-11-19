@@ -42,5 +42,8 @@ function tk_select_by_id($ma_tai_khoan)
     $sql = "SELECT *FROM tai_khoan WHERE ma_tai_khoan=?";
     return pdo_query_one($sql, $ma_tai_khoan);
 }
-
+function tk_count(){
+    $sql = "SELECT COUNT(ma_tai_khoan) as total FROM tai_khoan";
+    return pdo_query_one($sql);
+}
 

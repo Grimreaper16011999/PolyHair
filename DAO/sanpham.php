@@ -42,5 +42,10 @@ function sp_select_by_id($ma_san_pham)
     $sql = "SELECT *FROM san_pham WHERE ma_san_pham=?";
     return pdo_query_one($sql, $ma_san_pham);
 }
+function sp_count(){
+    $sql = "SELECT COUNT(ma_san_pham) as total FROM san_pham";
+    return pdo_query_one($sql);
+}
+
 
 

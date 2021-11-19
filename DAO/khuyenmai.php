@@ -47,3 +47,8 @@ function km_exist($ma_khuyen_mai)
     $sql = "SELECT count(*) FROM khuyen_mai WHERE ma_khuyen_mai=?";
     return pdo_query_value($sql, $ma_khuyen_mai) > 0;
 }
+function km_count(){
+    $sql = "SELECT COUNT(ma_khuyen_mai) as total FROM khuyen_mai";
+    return pdo_query_one($sql);
+}
+
