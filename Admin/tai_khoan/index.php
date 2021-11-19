@@ -58,7 +58,7 @@ if (exist_param("add")) {
         }
 
         if (!array_filter($errors)) {
-            tk_insert($ten_tai_khoan,$ho_ten, $hinh_anh, $mat_khau, $email, $trang_thai, $vai_tro);
+            tk_insert($ten_tai_khoan,$ho_ten, $hinh_anh, $mat_khau, $email, $trang_thai);
             if ($file['size'] != 0) {
                 move_uploaded_file($file['tmp_name'], "../../resources/img/taikhoan/" . $hinh_anh);
             }
@@ -117,11 +117,11 @@ if (exist_param("add")) {
         }
 
         if (!array_filter($errors)) {
-            tk_update($ten_tai_khoan,$ho_ten,$hinh_anh, $email, $trang_thai, $vai_tro, $ma_tai_khoan);
+            tk_update($ten_tai_khoan, $ho_ten, $hinh_anh, $email, $trang_thai, $ma_tai_khoan);
             if ($file['size'] != 0) {
                 move_uploaded_file($file['tmp_name'], "../../resources/img/taikhoan/" . $hinh_anh);
             }
-            $MESSAGE = "Thêm dữ liệu thành công";
+            $MESSAGE = "Sửa dữ liệu thành công";
             header('location: index.php?msg=' . $MESSAGE);
         }
     }

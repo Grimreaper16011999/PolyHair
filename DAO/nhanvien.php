@@ -2,15 +2,15 @@
 require_once "pdo.php";
 
 // Thêm mới nhân viên
-function nv_insert($ten_nhan_vien, $hinh_anh, $thong_tin, $trang_thai, $ma_co_so){
-    $sql = "INSERT INTO nhan_vien(ten_nhan_vien, hinh_anh, thong_tin, trang_thai, ma_co_so) VALUES(?,?,?,?,?)";
-    pdo_excute($sql,$ten_nhan_vien, $hinh_anh, $thong_tin, $trang_thai, $ma_co_so);
+function nv_insert($ten_nhan_vien, $hinh_anh, $email, $ma_co_so,$tai_khoan,$mat_khau,$vai_tro){
+    $sql = "INSERT INTO nhan_vien(ten_nhan_vien, hinh_anh, email, ma_co_so,tai_khoan,mat_khau,vai_tro) VALUES(?,?,?,?,?,?,?)";
+    pdo_excute($sql,$ten_nhan_vien, $hinh_anh, $email,$ma_co_so,$tai_khoan,$mat_khau,$vai_tro);
 }
 
 // Sửa thông tin nhân viên
-function nv_update($ten_nhan_vien, $hinh_anh, $thong_tin, $trang_thai, $ma_co_so, $ma_nhan_vien){
-    $sql = "UPDATE nhan_vien SET ten_nhan_vien=?, hinh_anh=?, thong_tin=?, trang_thai=?, ma_co_so=? WHERE ma_nhan_vien=?";
-    pdo_excute($sql,$ten_nhan_vien, $hinh_anh, $thong_tin, $trang_thai, $ma_co_so,$ma_nhan_vien);
+function nv_update($ten_nhan_vien, $hinh_anh, $email, $ma_co_so,$vai_tro,$ma_nhan_vien){
+    $sql = "UPDATE nhan_vien SET ten_nhan_vien=?, hinh_anh=?, email=?, ma_co_so=?, vai_tro=? WHERE ma_nhan_vien=?";
+    pdo_excute($sql,$ten_nhan_vien, $hinh_anh, $email, $ma_co_so,$vai_tro,$ma_nhan_vien);
 }
 // xoá
 function nv_delete($ma_nhan_vien)

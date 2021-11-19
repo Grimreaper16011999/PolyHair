@@ -7,7 +7,11 @@
                 <label for="name">Mã tài khoản</label>
                 <input type="text" class="form-control" placeholder="Auto" readonly name="ma_tai_khoan" value="<?= isset($ma_tai_khoan) ? $ma_tai_khoan : '' ?>">
             </div>
-            
+            <div class="form-group">
+                <label for="name">Họ tên</label>
+                <input type="text" require class="form-control" placeholder="Họ tên" name="ho_ten" value="<?= isset($ho_ten) ? $ho_ten : '' ?>">
+                <p class="errors" style="color: red;"><?= isset($errors['ho_ten']) ? $errors['ho_ten'] : '' ?></p>
+            </div>
 
             <div class="form-group">
                 <label for="name">Hình ảnh</label>
@@ -16,7 +20,7 @@
             </div>
             <div class="form-group">
                 <label for="name">Email</label>
-                <input type="text" class="form-control" placeholder="Email" name="email" value="<?= isset($email) ? $email : '' ?>">
+                <input type="email" require class="form-control" placeholder="Email" name="email" value="<?= isset($email) ? $email : '' ?>">
                 <p class="errors" style="color: red;"><?= isset($errors['email']) ? $errors['email'] : '' ?></p>
             </div>
             <div class="form-group">
@@ -24,13 +28,13 @@
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="trang_thai" value="1" checked>
                     <label class="form-check-label" for="trang_thai1" style="color: green;">
-                        On
+                        Kích hoạt
                     </label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="trang_thai" value="0">
                     <label class="form-check-label" for="trang_thai2" style="color: red;">
-                        Off
+                        Chưa kích hoạt
                     </label>
                 </div>
             </div>
@@ -52,27 +56,6 @@
                 <p class="errors" style="color: red;"><?= isset($errors['re_mat_khau']) ? $errors['re_mat_khau'] : '' ?></p>
             </div>
             
-            <div class="form-group">
-                <label for="name">Vai trò</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="vai_tro" value="1" >
-                    <label class="form-check-label" for="trang_thai1" style="color: red;">
-                        Quản trị viên
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="vai_tro" value="2" checked>
-                    <label class="form-check-label" for="trang_thai2" style="color: blue;">
-                        Nhân viên
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="vai_tro" value="3">
-                    <label class="form-check-label" for="trang_thai2" style="color: #333;">
-                        Thành viên
-                    </label>
-                </div>
-            </div>
         </div>
     </div>
     <button type="submit" class="btn btn-success" name="btn_insert">Thêm</button>

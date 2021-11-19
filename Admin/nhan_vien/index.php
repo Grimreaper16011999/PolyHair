@@ -15,10 +15,11 @@ if (exist_param("add")) {
         extract($_POST);
         $ext_img = ['jpg', 'png'];
         $errors = [
+            'tai_khoan'=>'',
+            'mat_khau'=>'',
             'ten_nhan_vien' => '',
-            'thong_tin' => '',
-            'hinh_anh' => '',
-            'url' => ''
+            'email' => '',
+            'hinh_anh' => ''
         ];
 
         if ($_FILES['hinh']['size'] > 0) {
@@ -36,15 +37,21 @@ if (exist_param("add")) {
         } else {
             $hinh_anh = '1.jpg';
         }
+        if ($tai_khoan == null) {
+            $errors['tai_khoan'] = 'Dữ liệu không được để trống';
+        }
+        if ($mat_khau == null) {
+            $errors['mat_khau'] = 'Dữ liệu không được để trống';
+        }
         if ($ten_nhan_vien == null) {
             $errors['ten_nhan_vien'] = 'Dữ liệu không được để trống';
         }
-        if ($thong_tin == null) {
-            $errors['thong_tin'] = 'Dữ liệu không được để trống';
+        if ($email == null) {
+            $errors['email'] = 'Dữ liệu không được để trống';
         }
 
         if (!array_filter($errors)) {
-            nv_insert($ten_nhan_vien, $hinh_anh, $thong_tin, $trang_thai, $ma_co_so);
+            nv_insert($ten_nhan_vien, $hinh_anh, $email, $ma_co_so, $tai_khoan, $mat_khau, $vai_tro);
             if ($file['size'] != 0) {
                 move_uploaded_file($file['tmp_name'], "../../resources/img/nhanvien/" . $hinh_anh);
             }
@@ -60,9 +67,8 @@ if (exist_param("add")) {
         $ext_img = ['jpg', 'png'];
         $errors = [
             'ten_nhan_vien' => '',
-            'thong_tin' => '',
-            'hinh_anh' => '',
-            'url' => ''
+            'email' => '',
+            'hinh_anh' => ''
         ];
 
         if ($_FILES['hinh']['size'] > 0) {
@@ -83,12 +89,12 @@ if (exist_param("add")) {
         if ($ten_nhan_vien == null) {
             $errors['ten_nhan_vien'] = 'Dữ liệu không được để trống';
         }
-        if ($thong_tin == null) {
-            $errors['thong_tin'] = 'Dữ liệu không được để trống';
+        if ($email == null) {
+            $errors['email'] = 'Dữ liệu không được để trống';
         }
 
         if (!array_filter($errors)) {
-            nv_update($ten_nhan_vien, $hinh_anh, $thong_tin, $trang_thai, $ma_co_so, $ma_nhan_vien);
+            nv_update($ten_nhan_vien, $hinh_anh, $email, $ma_co_so, $vai_tro, $ma_nhan_vien);
             if ($file['size'] != 0) {
                 move_uploaded_file($file['tmp_name'], "../../resources/img/nhanvien/" . $hinh_anh);
             }

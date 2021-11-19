@@ -13,18 +13,29 @@
                 <input type="file" class="form-control" name="hinh">
                 <p class="errors" style="color: red;"><?= isset($errors['hinh_anh']) ? $errors['hinh_anh'] : '' ?></p>
             </div>
+
             <div class="form-group">
-                <label for="name">Trạng thái</label>
+                <label for="name">Tài khoản</label>
+                <input type="text" class="form-control" placeholder="Username" name="tai_khoan" value="<?= isset($tai_khoan) ? $tai_khoan : '' ?>">
+                <p class="errors" style="color: red;"><?= isset($errors['tai_khoan']) ? $errors['tai_khoan'] : '' ?></p>
+            </div>
+            <div class="form-group">
+                <label for="name">Mật khẩu</label>
+                <input type="password" class="form-control" placeholder="Password" name="mat_khau" value="<?= isset($mat_khau) ? $mat_khau : '' ?>">
+                <p class="errors" style="color: red;"><?= isset($errors['mat_khau']) ? $errors['mat_khau'] : '' ?></p>
+            </div>
+            <div class="form-group">
+                <label for="name">Vai trò</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="trang_thai" value="1" checked>
-                    <label class="form-check-label" for="trang_thai1" style="color: green;">
-                        On
+                    <input class="form-check-input" type="radio" name="vai_tro" value="1">
+                    <label class="form-check-label" for="trang_thai1" style="color: red;">
+                        Quản trị viên
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="trang_thai" value="0">
-                    <label class="form-check-label" for="trang_thai2" style="color: red;">
-                        Off
+                    <input class="form-check-input" type="radio" name="vai_tro" value="0" checked>
+                    <label class="form-check-label" for="trang_thai2" style="color: blue;">
+                        Nhân viên
                     </label>
                 </div>
             </div>
@@ -36,9 +47,9 @@
                 <p class="errors" style="color: red;"><?= isset($errors['ten_nhan_vien']) ? $errors['ten_nhan_vien'] : '' ?></p>
             </div>
             <div class="form-group">
-                <label for="name">Thông tin</label>
-                <input type="text" class="form-control" placeholder="Thông tin" name="thong_tin" value="<?= isset($thong_tin) ? $thong_tin : '' ?>">
-                <p class="errors" style="color: red;"><?= isset($errors['thong_tin']) ? $errors['thong_tin'] : '' ?></p>
+                <label for="name">Email</label>
+                <input type="email" require class="form-control" placeholder="Email" name="email" value="<?= isset($email) ? $email : '' ?>">
+                <p class="errors" style="color: red;"><?= isset($errors['email']) ? $errors['email'] : '' ?></p>
             </div>
             <div class="form-group">
                 <label for="category">Cơ sở</label>

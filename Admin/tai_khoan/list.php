@@ -40,7 +40,6 @@ try {
                 <th>Hình ảnh</th>
                 <th>email</th>
                 <th>Trạng thái</th>
-                <th>Vai trò</th>
                 <th colspan="2" class="text-center">Tác vụ</th>
             </tr>
 
@@ -60,17 +59,6 @@ try {
                     </td>
                     <td><?= $row['email'] ?></td>
                     <td><?= ($row['trang_thai'] == 1) ? 'kích hoạt' : 'chưa kích hoạt' ?></td>
-                    <td>
-                        <?php
-                        if ($row['vai_tro'] == 1) {
-                            echo 'Quản trị viên';
-                        } elseif ($row['vai_tro'] == 2) {
-                            echo 'Nhân viên';
-                        } else {
-                            echo 'Thành viên';
-                        }
-                        ?>
-                    </td>
                     <td class="text-center">
                     <a href="index.php?edit&id=<?=$row['ma_tai_khoan']?>" class="btn btn-warning"><i class="far fa-edit" style="color: #fff;"></i></a>
                         <a onclick="return confirm('Bạn có chắc muốn xoá không?')" class="btn btn-danger" href="index.php?delete&ma_tai_khoan=<?= $row['ma_tai_khoan'] ?>"><i class="far fa-trash-alt"></i></a>

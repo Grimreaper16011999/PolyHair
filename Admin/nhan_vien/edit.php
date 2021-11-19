@@ -16,9 +16,9 @@ $nv = nv_select_by_id($_GET['id']);
                 <p class="errors" style="color: red;"><?= isset($errors['ten_nhan_vien']) ? $errors['ten_nhan_vien'] : '' ?></p>
             </div>
             <div class="form-group">
-                <label for="name">Thông tin</label>
-                <input type="text" class="form-control" placeholder="Thông tin" name="thong_tin" value="<?= $nv['thong_tin'] ?>">
-                <p class="errors" style="color: red;"><?= isset($errors['thong_tin']) ? $errors['thong_tin'] : '' ?></p>
+                <label for="name">Email</label>
+                <input type="text" class="form-control" placeholder="Email" name="email" value="<?= $nv['email'] ?>">
+                <p class="errors" style="color: red;"><?= isset($errors['email']) ? $errors['email'] : '' ?></p>
             </div>
             <div class="form-group">
                 <label for="category">Cơ sở</label>
@@ -37,17 +37,17 @@ $nv = nv_select_by_id($_GET['id']);
                 </select>
             </div>
             <div class="form-group">
-                <label for="name">Trạng thái</label>
+                <label for="name">Vai trò</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="trang_thai" value="1" <?=($nv['trang_thai']==1)?'checked':''?>>
-                    <label class="form-check-label" for="trang_thai1" style="color: green;">
-                        On
+                    <input class="form-check-input" type="radio" name="vai_tro" value="1" <?=($nv['vai_tro']==1)?'checked':''?>>
+                    <label class="form-check-label" for="vai_tro1" style="color: green;">
+                        Quản trị viên
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="trang_thai" value="0" <?=($nv['trang_thai']==0)?'checked':''?>>
-                    <label class="form-check-label" for="trang_thai2" style="color: red;">
-                        Off
+                    <input class="form-check-input" type="radio" name="vai_tro" value="0" <?=($nv['vai_tro']==0)?'checked':''?>>
+                    <label class="form-check-label" for="vai_tro2" style="color: red;">
+                        Nhân viên
                     </label>
                 </div>
             </div>

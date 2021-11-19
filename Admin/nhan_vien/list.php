@@ -36,10 +36,12 @@ try {
                     <input type="checkbox" id="selectall">
                 </th>
                 <th>STT</th>
+                <th>Tài khoản</th>
+                <th>Mật khẩu</th>
                 <th>Tên nhân viên</th>
                 <th>Hình ảnh</th>
-                <th>Thông tin</th>
-                <th>Trạng thái</th>
+                <th>Email</th>
+                <th>Vai trò</th>
                 <th>Tên cơ sở</th>
                 <th colspan="2" class="text-center">Tác vụ</th>
             </tr>
@@ -53,12 +55,14 @@ try {
                         <input type="checkbox" name="ma_nhan_vien[]" id="" value="<?= $row['ma_nhan_vien'] ?>" class="checkbox1">
                     </td>
                     <td><?= ++$key ?></td>
+                    <td><?= $row['tai_khoan'] ?></td>
+                    <td><?= $row['mat_khau'] ?></td>
                     <td><?= $row['ten_nhan_vien'] ?></td>
                     <td>
                         <img src="<?= $IMG_URL ?>/nhanvien/<?= $row['hinh_anh'] ?>" alt="" width="100px">
                     </td>
-                    <td><?= $row['thong_tin'] ?></td>
-                    <td><?= ($row['trang_thai'] ==1)?'ON':'OFF' ?></td>
+                    <td><?= $row['email'] ?></td>
+                    <td><?= ($row['vai_tro'] ==1)?'Quản trị viên':'Nhân viên' ?></td>
                     <td>
                         <?=coso_select_by_id($row['ma_co_so'])['ten_co_so'] ?>
                     </td>

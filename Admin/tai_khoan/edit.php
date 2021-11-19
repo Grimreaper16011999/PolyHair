@@ -15,7 +15,7 @@ $tk = tk_select_by_id($_GET['id'])
             </div>
             <div class="form-group">
                 <label for="name">Họ và tên</label>
-                <input type="text" class="form-control" placeholder="Họ tên" name="ho_ten" value="<?= isset($ho_ten) ? $ho_ten : '' ?>">
+                <input type="text" class="form-control" placeholder="Họ tên" name="ho_ten" value="<?= $tk['ho_ten']?>">
                 <p class="errors" style="color: red;"><?= isset($errors['ho_ten']) ? $errors['ho_ten'] : '' ?></p>
 
             </div>
@@ -44,28 +44,7 @@ $tk = tk_select_by_id($_GET['id'])
                 <input type="file" class="form-control" name="hinh">
                 <p class="errors" style="color: red;"><?= isset($errors['hinh_anh']) ? $errors['hinh_anh'] : '' ?></p>
             </div>
-            <div class="form-group">
-                <label for="name">Vai trò</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="vai_tro" value="1" <?= ($tk['vai_tro'] == 1) ? 'checked' : '' ?>>
-                    <label class="form-check-label" for="trang_thai1" style="color: red;">
-                        Quản trị viên
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="vai_tro" value="2" <?= ($tk['vai_tro'] == 2) ? 'checked' : '' ?>>
-                    <label class="form-check-label" for="trang_thai2" style="color: blue;">
-                        Nhân viên
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="vai_tro" value="3" <?= ($tk['vai_tro'] == 3) ? 'checked' : '' ?>>
-                    <label class="form-check-label" for="trang_thai2" style="color: #333;">
-                        Thành viên
-                    </label>
-                </div>
-            </div>
-
+        
 
             <div class="form-group">
                 <label for="name">Email</label>
@@ -77,13 +56,13 @@ $tk = tk_select_by_id($_GET['id'])
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="trang_thai" value="1" <?= ($tk['trang_thai'] == 1) ? 'checked' : '' ?>>
                     <label class="form-check-label" for="trang_thai1" style="color: green;">
-                        On
+                        Kích hoạt
                     </label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="trang_thai" value="0" <?= ($tk['trang_thai'] == 0) ? 'checked' : '' ?>>
                     <label class="form-check-label" for="trang_thai2" style="color: red;">
-                        Off
+                        Chưa kích hoạt
                     </label>
                 </div>
             </div>
