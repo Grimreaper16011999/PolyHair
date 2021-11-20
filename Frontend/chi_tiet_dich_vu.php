@@ -1,7 +1,5 @@
 <?php
-    if(isset($_GET['madv'])){
-        
-    }
+    $dv_detail= dv_select_by_id($_GET['madv']);
 ?>
 
 <link rel="stylesheet" href="../resources/css/frontend/chi_tiet.css">
@@ -155,30 +153,25 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="mySlides" style="display:block">
-                        <img src="../resources/img/dichvu/dichvu.jpg" style="width:100%">
+                        <img src="<?= $IMG_URL ?>/dichvu/<?= $dv_detail['hinh_anh'] ?>" style="width:100%">
                     </div>
 
                 </div>
-                <div class="col-sm-6 pt-5">
-                    <span>Trang chủ / cắt tóc nam</span>
-                    <h5>Tên dịch vụ</h5>
-                    <p class="price">Giá 100 000đ</p>
-                    <a href="" class="btn btn-success">Đặt lịch ngay</a>
-                    <div class="danh_muc">
-                        Cắt tóc nam
-                    </div>
-                    <div class="link_social">
-                        fb zalo yt
-                    </div>
+                <div class="col-sm-6">
+                    <span>Trang chủ / Dịch vụ</span>
+                    <h5><?=$dv_detail['ten_dich_vu']?></h5>
+                    <p class="price">Giá <?=$dv_detail['gia']?> đ</p>
+                    <a href="index.php?dat_lich" class="btn btn-success">Đặt lịch ngay</a>
                 </div>
 
             </div>
 
             <div>
                 <h4>Thông tin chi tiết</h4>
-                <p>Chi tiết chi tiết</p>
+                <div class="detail">
+                    <?=$dv_detail['chi_tiet']?>
+                </div>
             </div>
-
         </div>
     </div>
 </div>

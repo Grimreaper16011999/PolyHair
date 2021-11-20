@@ -20,6 +20,11 @@ $km = km_select_by_id($_GET['id']);
                 <input type="text" class="form-control" placeholder="số lượng" name="so_luong" value="<?= $km['so_luong'] ?>">
                 <p class="errors" style="color: red;"><?= isset($errors['so_luong']) ? $errors['so_luong'] : '' ?></p>
             </div>
+            <div class="form-group">
+                <label for="name">Ngày hết han</label>
+                <input type="date" class="form-control" name="ngay_het_han" value="<?= $km['ngay_het_han'] ?>">
+                <p class="errors" style="color: red;"><?= isset($errors['ngay_het_han']) ? $errors['ngay_het_han'] : '' ?></p>
+            </div>
         </div>
         <div class="col-sm-6">
             <div class="form-group">
@@ -38,7 +43,7 @@ $km = km_select_by_id($_GET['id']);
             <div class="form-group">
                 <label for="name">Chi tiết</label>
                 <span class="errors" style="color: red;">
-                    <textarea class="form-control" name="chi_tiet" id="summernote" cols="30" rows="10"><?=$km['chi_tiet']?></textarea>
+                    <textarea class="form-control" name="chi_tiet" id="summernote" cols="30" rows="10"><?= $km['chi_tiet'] ?></textarea>
                     <?= isset($errors['chi_tiet']) ? $errors['chi_tiet'] : '' ?>
             </div>
         </div>

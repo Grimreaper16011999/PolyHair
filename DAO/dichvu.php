@@ -51,3 +51,8 @@ function dv_count(){
     $sql = "SELECT COUNT(ma_dich_vu) as total FROM dich_vu";
     return pdo_query_one($sql);
 }
+
+function dv_select_limit_8(){
+    $sql = "SELECT *FROM dich_vu ORDER BY ma_dich_vu DESC LIMIT 8";
+    return pdo_query($sql);
+}

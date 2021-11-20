@@ -2,7 +2,8 @@
 if (isset($_GET['msg'])) {
     echo "<script type='text/javascript'>alert('$msg');</script>";
 }
-
+$cs = coso_select_All();
+$bv = bv_select_limit_8();
 ?>
 <!doctype html>
 <html lang="en">
@@ -117,36 +118,31 @@ if (isset($_GET['msg'])) {
                             Giờ phục vụ 8h30 - 21h00 (kể cả thứ 7, CN)
                         </div>
                         <div class="mt-4">Địa chỉ</div>
-                        <div class="mt-2 address_1 pb-2"><a href="">
-                                474 Đê La Thành
-                            </a>
-                        </div>
-                        <div class="mt-2">
-                            <a href=""> 201 Nguyễn Văn Cừ</a>
-
-                        </div>
+                        <?php foreach ($cs as $key => $value) : ?>
+                            <div class="mt-2 address_1 pb-2">
+                                <a href="">
+                                    <?= $value['dia_chi'] ?>
+                                </a>
+                            </div>
+                        <?php endforeach; ?>
                         <div class="mt-4">
                             <a href="">Webiste</a>
 
                         </div>
                         <div class="mt-4 link_fb">
-                            <a href="">Facebook</a>
+                            <a href="https://www.facebook.com/hoang.tanloc.73">Facebook</a>
 
                         </div>
                         <div class="mt-4 tel">
-                            <a href="">Tel,Zalo: 0988913668 - MR. Tuấn</a>
+                            <a href="https://zalo.me/0983108404">Tel,Zalo: 0988913668 - MR. Lộc</a>
                         </div>
                     </div>
                     <div class="col-sm-4 col-xs-12">
                         <h5>Bài viết mới</h5>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item address_1"><a href="">Bài viết số 1</a> </li>
-                            <li class="list-group-item address_1"><a href="">Bài viết số 2</a> </li>
-                            <li class="list-group-item address_1"><a href="">Bài viết số 3</a> </li>
-                            <li class="list-group-item address_1"><a href="">Bài viết số 4</a> </li>
-                            <li class="list-group-item address_1"><a href="">Bài viết số 5</a> </li>
-                            <li class="list-group-item address_1"><a href="">Bài viết số 6</a> </li>
-                            <li class="list-group-item address_1"><a href="">Bài viết số 7</a> </li>
+                            <?php foreach ($bv as $key => $value) : ?>
+                                <li class="list-group-item address_1"><a href=""><?=$value['ten_bai_viet']?></a> </li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                     <div class="col-sm-4 col-xs-12">

@@ -2,14 +2,14 @@
 require_once "pdo.php";
 
 // Thêm mới
-function km_insert($ten_khuyen_mai, $hinh_anh, $gia, $chi_tiet,$so_luong){
-    $sql = "INSERT INTO khuyen_mai(ten_khuyen_mai,hinh_anh,gia,chi_tiet, so_luong) VALUES (?,?,?,?,?)";
-    pdo_excute($sql,$ten_khuyen_mai, $hinh_anh, $gia, $chi_tiet,$so_luong);
+function km_insert($ten_khuyen_mai, $hinh_anh, $gia, $chi_tiet,$so_luong,$ngay_het_han){
+    $sql = "INSERT INTO khuyen_mai(ten_khuyen_mai,hinh_anh,gia,chi_tiet, so_luong,ngay_het_han) VALUES (?,?,?,?,?,?)";
+    pdo_excute($sql,$ten_khuyen_mai, $hinh_anh, $gia, $chi_tiet,$so_luong,$ngay_het_han);
 }
 
-function km_update($ten_khuyen_mai, $hinh_anh, $gia, $chi_tiet,$so_luong,$ma_khuyen_mai){
-    $sql = "UPDATE khuyen_mai SET ten_khuyen_mai=?,hinh_anh=?,gia=?,chi_tiet=?, so_luong=? WHERE ma_khuyen_mai=?";
-    pdo_excute($sql,$ten_khuyen_mai, $hinh_anh, $gia, $chi_tiet,$so_luong,$ma_khuyen_mai);
+function km_update($ten_khuyen_mai, $hinh_anh, $gia, $chi_tiet,$so_luong,$ngay_het_han,$ma_khuyen_mai){
+    $sql = "UPDATE khuyen_mai SET ten_khuyen_mai=?,hinh_anh=?,gia=?,chi_tiet=?, so_luong=?, ngay_het_han=? WHERE ma_khuyen_mai=?";
+    pdo_excute($sql,$ten_khuyen_mai, $hinh_anh, $gia, $chi_tiet,$so_luong,$ngay_het_han,$ma_khuyen_mai);
 }
 
 // xoá
@@ -50,5 +50,11 @@ function km_exist($ma_khuyen_mai)
 function km_count(){
     $sql = "SELECT COUNT(ma_khuyen_mai) as total FROM khuyen_mai";
     return pdo_query_one($sql);
+}
+
+
+function km_select_limit_8(){
+    $sql = "SELECT *FROM khuyen_mai ORDER BY ma_khuyen_mai DESC LIMIT 8";
+    return pdo_query($sql);
 }
 

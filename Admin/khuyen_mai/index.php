@@ -18,7 +18,7 @@ if (exist_param("add")) {
             'gia' => '',
             'so_luong' => '',
             'chi_tiet' => '',
-            'url' => ''
+            'ngay_het_han' => ''
         ];
 
         if ($_FILES['hinh']['size'] > 0) {
@@ -38,6 +38,9 @@ if (exist_param("add")) {
         }
         if ($ten_khuyen_mai == null) {
             $errors['ten_khuyen_mai'] = 'Dữ liệu không được để trống';
+        }
+        if ($ngay_het_han == null) {
+            $errors['ngay_het_han'] = 'Dữ liệu không được để trống';
         }
         if ($chi_tiet == null) {
             $errors['chi_tiet'] = 'Dữ liệu không được để trống';
@@ -59,7 +62,7 @@ if (exist_param("add")) {
 
 
         if (!array_filter($errors)) {
-            km_insert($ten_khuyen_mai,  $hinh_anh,  $gia,  $chi_tiet,  $so_luong);
+            km_insert($ten_khuyen_mai, $hinh_anh, $gia, $chi_tiet, $so_luong, $ngay_het_han);
             if ($file['size'] != 0) {
                 move_uploaded_file($file['tmp_name'], "../../resources/img/khuyenmai/" . $hinh_anh);
             }
@@ -78,9 +81,11 @@ if (exist_param("add")) {
             'gia' => '',
             'so_luong' => '',
             'chi_tiet' => '',
-            'url' => ''
+            'ngay_het_han' => ''
         ];
-
+        if ($ngay_het_han == null) {
+            $errors['ngay_het_han'] = 'Dữ liệu không được để trống';
+        }
         if ($_FILES['hinh']['size'] > 0) {
             $file = $_FILES['hinh'];
             $hinh_anh = '';
@@ -119,7 +124,7 @@ if (exist_param("add")) {
 
 
         if (!array_filter($errors)) {
-            km_update($ten_khuyen_mai,  $hinh_anh,  $gia,  $chi_tiet,  $so_luong,  $ma_khuyen_mai);
+            km_update($ten_khuyen_mai, $hinh_anh, $gia, $chi_tiet, $so_luong, $ngay_het_han, $ma_khuyen_mai);
             if ($file['size'] != 0) {
                 move_uploaded_file($file['tmp_name'], "../../resources/img/khuyenmai/" . $hinh_anh);
             }

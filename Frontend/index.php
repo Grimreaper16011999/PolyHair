@@ -8,6 +8,10 @@ require "../DAO/khunggio.php";
 require "../DAO/dichvu.php";
 require "../DAO/khuyenmai.php";
 require "../DAO/lich_hen.php";
+require "../DAO/baiviet.php";
+require "../DAO/kieutoc.php";
+
+
 
 extract($_REQUEST);
 if (exist_param("dat_lich")) {
@@ -33,7 +37,7 @@ if (exist_param("dat_lich")) {
         if (!isset($ma_khung_gio)) {
             $errors['ma_khung_gio'] = 'bạn phải chọn khung giờ';
         }
-        if ($ngay_cat==null) {
+        if ($ngay_cat == null) {
             $errors['ngay_cat'] = 'bạn phải chọn ngày cắt';
         }
         if (!array_filter($errors)) {
@@ -54,9 +58,14 @@ if (exist_param("dat_lich")) {
     $VIEW_NAME = "login.php";
 } elseif (exist_param("chi_tiet")) {
     $VIEW_NAME = "chi_tiet.php";
-}
-elseif (exist_param("chi_tiet_bai_viet")) {
+} elseif (exist_param("chi_tiet_dv")) {
+    $VIEW_NAME = "chi_tiet_dich_vu.php";
+} elseif (exist_param("chi_tiet_mt")) {
+    $VIEW_NAME = "chi_tiet_mau_toc.php";
+} elseif (exist_param("chi_tiet_bai_viet")) {
     $VIEW_NAME = "chi_tiet_bai_viet.php";
+} elseif (exist_param("chi_tiet_khuyenmai")) {
+    $VIEW_NAME = "chi_tiet_khuyenmai.php";
 } elseif (exist_param("khuyen_mai")) {
     $VIEW_NAME = "khuyen_mai.php";
 } elseif (exist_param("style")) {

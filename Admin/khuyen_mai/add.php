@@ -29,6 +29,11 @@
                 <input type="file" class="form-control" name="hinh">
                 <p class="errors" style="color: red;"><?= isset($errors['hinh_anh']) ? $errors['hinh_anh'] : '' ?></p>
             </div>
+            <div class="form-group">
+                <label for="name">Ngày hết han</label>
+                <input type="date" class="form-control" name="ngay_het_han" value="<?= isset($ngay_het_han) ? $ngay_het_han : '' ?>">
+                <p class="errors" style="color: red;"><?= isset($errors['ngay_het_han']) ? $errors['ngay_het_han'] : '' ?></p>
+            </div>
         </div>
         <div class="col-sm-12">
             <div class="form-group">

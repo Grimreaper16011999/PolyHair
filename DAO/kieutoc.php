@@ -51,3 +51,8 @@ function kt_count(){
     return pdo_query_one($sql);
 }
 
+function kt_select_limit_8(){
+    $sql = "SELECT *FROM kieu_toc ORDER BY ma_kieu_toc DESC LIMIT 8";
+    return pdo_query($sql);
+}
+

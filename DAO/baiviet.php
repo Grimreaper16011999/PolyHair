@@ -29,7 +29,7 @@ function bv_delete($ma_bai_viet)
 
 // Chọn tất cả bài viết
 function bv_select_All(){
-    $sql = "SELECT *FROM bao_viet";
+    $sql = "SELECT *FROM bai_viet";
     return pdo_query($sql);
 }
 function bv_select_All_limit($firstindex,$limit){
@@ -46,5 +46,9 @@ function bv_count(){
     $sql = "SELECT COUNT(ma_bai_viet) as total FROM bai_viet";
     return pdo_query_one($sql);
 }
-
+// Truy vấn 8 bài viết mới nhất
+function bv_select_limit_8(){
+    $sql = "SELECT *FROM bai_viet ORDER BY ma_bai_viet DESC LIMIT 8";
+    return pdo_query($sql);
+}
 

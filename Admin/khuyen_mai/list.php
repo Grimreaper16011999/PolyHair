@@ -40,6 +40,7 @@ try {
                 <th>Hình ảnh</th>
                 <th>Giá(%)</th>
                 <th>Số lượng</th>
+                <th>Ngày hết hạn</th>
                 <th colspan="2" class="text-center">Tác vụ</th>
             </tr>
 
@@ -58,6 +59,7 @@ try {
                     </td>
                     <td><?= $row['gia'] ?></td>
                     <td><?= $row['so_luong'] ?></td>
+                    <td><?= $row['ngay_het_han'] ?></td>
                     <td class="text-center">
                         <a href="index.php?edit&id=<?= $row['ma_khuyen_mai'] ?>" class="btn btn-warning"><i class="far fa-edit" style="color: #fff;"></i></a>
                         <a onclick="return confirm('Bạn có chắc muốn xoá không?')" class="btn btn-danger" href="index.php?delete&ma_khuyen_mai=<?= $row['ma_khuyen_mai'] ?>"><i class="far fa-trash-alt"></i></a>
