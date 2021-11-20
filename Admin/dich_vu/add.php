@@ -20,6 +20,11 @@
                 <p class="errors" style="color: red;"><?= isset($errors['gia']) ? $errors['gia'] : '' ?></p>
             </div>
             <div class="form-group">
+                <label for="name">Khuyến mãi (%)</label>
+                <input type="text" class="form-control" placeholder="ex: 10%" name="gia_km" value="<?= isset($gia_km) ? $gia_km : '' ?>">
+                <p class="errors" style="color: red;"><?= isset($errors['gia_km']) ? $errors['gia_km'] : '' ?></p>
+            </div>
+            <div class="form-group">
                 <label for="name">Hình ảnh</label>
                 <input type="file" class="form-control" name="hinh">
                 <p class="errors" style="color: red;"><?= isset($errors['hinh_anh']) ? $errors['hinh_anh'] : '' ?></p>

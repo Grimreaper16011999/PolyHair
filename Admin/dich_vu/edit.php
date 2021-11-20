@@ -21,6 +21,11 @@ $dv = dv_select_by_id($_GET['id']);
                 <input type="text" class="form-control" placeholder="Giá dịch vụ" name="gia" value="<?= $dv['gia'] ?>">
                 <p class="errors" style="color: red;"><?= isset($errors['gia']) ? $errors['gia'] : '' ?></p>
             </div>
+            <div class="form-group">
+                <label for="name">Khuyến mãi (%)</label>
+                <input type="text" class="form-control" placeholder="ex: 10%" name="gia_km" value="<?=$dv['gia_km']?>">
+                <p class="errors" style="color: red;"><?= isset($errors['gia_km']) ? $errors['gia_km'] : '' ?></p>
+            </div>
         </div>
         <div class="col-sm-6">
         <img class="mt-4" src="<?= $IMG_URL ?>/dichvu/<?= $dv['hinh_anh'] ?>" alt="" width="200px">

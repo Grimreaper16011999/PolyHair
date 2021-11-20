@@ -39,6 +39,7 @@ try {
                 <th>Tên dịch vụ</th>
                 <th>Hình ảnh</th>
                 <th>Giá</th>
+                <th>Khuyến mãi (%)</th>
                 <th colspan="2" class="text-center">Tác vụ</th>
             </tr>
 
@@ -56,6 +57,7 @@ try {
                         <img src="<?= $IMG_URL ?>/dichvu/<?= $row['hinh_anh'] ?>" alt="" width="80px">
                     </td>
                     <td><?= $row['gia'] ?></td>
+                    <td><?= $row['gia_km'] ?></td>
                     <td class="text-center">
                         <a href="index.php?edit&id=<?= $row['ma_dich_vu'] ?>" class="btn btn-warning"><i class="far fa-edit" style="color: #fff;"></i></a>
                         <a onclick="return confirm('Bạn có chắc muốn xoá không?')" class="btn btn-danger" href="index.php?delete&ma_dich_vu=<?= $row['ma_dich_vu'] ?>"><i class="far fa-trash-alt"></i></a>

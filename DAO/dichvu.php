@@ -2,9 +2,9 @@
 require_once "pdo.php";
 
 // Thêm mới dịch vụ
-function dv_insert($ten_dich_vu, $hinh_anh, $gia, $chi_tiet){
-    $sql = "INSERT INTO dich_vu(ten_dich_vu,hinh_anh,gia,chi_tiet) VALUES (?,?,?,?)";
-    pdo_excute($sql,$ten_dich_vu, $hinh_anh, $gia, $chi_tiet);
+function dv_insert($ten_dich_vu, $hinh_anh, $gia,$gia_km, $chi_tiet){
+    $sql = "INSERT INTO dich_vu(ten_dich_vu,hinh_anh,gia,gia_km,chi_tiet) VALUES (?,?,?,?,?)";
+    pdo_excute($sql,$ten_dich_vu, $hinh_anh, $gia,$gia_km, $chi_tiet);
 }
 
 // dv_insert('dv 2', 'dichvu.jpg',50000,'chi tiết dịch vu 2');
@@ -12,9 +12,9 @@ function dv_insert($ten_dich_vu, $hinh_anh, $gia, $chi_tiet){
 // dv_insert('dv 4', 'dichvu.jpg',340000,'chi tiết dịch vu 4');
 
 // Update dịch vụ
-function dv_update($ten_dich_vu, $hinh_anh, $gia, $chi_tiet,$ma_dich_vu){
-    $sql = "UPDATE dich_vu SET ten_dich_vu=?, hinh_anh=?, gia=?, chi_tiet=? WHERE ma_dich_vu=?";
-    pdo_excute($sql,$ten_dich_vu, $hinh_anh, $gia, $chi_tiet,$ma_dich_vu);
+function dv_update($ten_dich_vu, $hinh_anh, $gia,$gia_km, $chi_tiet,$ma_dich_vu){
+    $sql = "UPDATE dich_vu SET ten_dich_vu=?, hinh_anh=?, gia=?,gia_km=?, chi_tiet=? WHERE ma_dich_vu=?";
+    pdo_excute($sql,$ten_dich_vu, $hinh_anh, $gia,$gia_km, $chi_tiet,$ma_dich_vu);
 }
 
 // Xoá dịch vụ

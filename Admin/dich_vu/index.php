@@ -17,7 +17,7 @@ if (exist_param("add")) {
             'ten_dich_vu' => '',
             'gia' => '',
             'chi_tiet' => '',
-            'url' => ''
+            'gia_km' => ''
         ];
 
         if ($_FILES['hinh']['size'] > 0) {
@@ -41,15 +41,22 @@ if (exist_param("add")) {
         if ($chi_tiet == null) {
             $errors['chi_tiet'] = 'Dữ liệu không được để trống';
         }
-        if($gia ==null){
+        if ($gia == null) {
             $errors['gia'] = 'Dữ liệu không được để trống';
         }
-        if(!is_numeric($gia)){
+        if ($gia_km == null) {
+            $errors['gia_km'] = 'Dữ liệu không được để trống';
+        } else {
+            if (!is_numeric($gia_km) || $gia_km < 0 || $gia_km > 100) {
+                $errors['gia_km'] = 'Giá km phải là số có giá trị từ 0 đến 100';
+            }
+        }
+        if (!is_numeric($gia)) {
             $errors['gia'] = 'Sai định dạng dữ liệu';
         }
 
         if (!array_filter($errors)) {
-            dv_insert($ten_dich_vu,$hinh_anh,$gia,$chi_tiet);
+            dv_insert($ten_dich_vu, $hinh_anh, $gia, $gia_km, $chi_tiet);
             if ($file['size'] != 0) {
                 move_uploaded_file($file['tmp_name'], "../../resources/img/dichvu/" . $hinh_anh);
             }
@@ -67,7 +74,7 @@ if (exist_param("add")) {
             'ten_dich_vu' => '',
             'gia' => '',
             'chi_tiet' => '',
-            'url' => ''
+            'gia_km' => ''
         ];
 
         if ($_FILES['hinh']['size'] > 0) {
@@ -91,15 +98,22 @@ if (exist_param("add")) {
         if ($chi_tiet == null) {
             $errors['chi_tiet'] = 'Dữ liệu không được để trống';
         }
-        if($gia ==null){
+        if ($gia == null) {
             $errors['gia'] = 'Dữ liệu không được để trống';
         }
-        if(!is_numeric($gia)){
+        if ($gia_km == null) {
+            $errors['gia_km'] = 'Dữ liệu không được để trống';
+        } else {
+            if (!is_numeric($gia_km) || $gia_km < 0 || $gia_km > 100) {
+                $errors['gia_km'] = 'Giá km phải là số có giá trị từ 0 đến 100';
+            }
+        }
+        if (!is_numeric($gia)) {
             $errors['gia'] = 'Sai định dạng dữ liệu';
         }
 
         if (!array_filter($errors)) {
-            dv_update($ten_dich_vu,$hinh_anh,$gia,$chi_tiet,$ma_dich_vu);
+            dv_update($ten_dich_vu, $hinh_anh, $gia, $gia_km, $chi_tiet, $ma_dich_vu);
             if ($file['size'] != 0) {
                 move_uploaded_file($file['tmp_name'], "../../resources/img/dichvu/" . $hinh_anh);
             }

@@ -159,8 +159,9 @@
                 </div>
                 <div class="col-sm-6">
                     <span>Trang chủ / Dịch vụ</span>
-                    <h5><?=$dv_detail['ten_dich_vu']?></h5>
-                    <p class="price">Giá <?=$dv_detail['gia']?> đ</p>
+                    <h5 class="mt-4">Tên dịch vụ: <?=$dv_detail['ten_dich_vu']?></h5>
+                    <p class="price mt-4">Giá: <?=$dv_detail['gia']?> đ</p>
+                    <p class="km">Khuyến mãi: <?=$dv_detail['gia_km']?> %</p>
                     <a href="index.php?dat_lich" class="btn btn-success">Đặt lịch ngay</a>
                 </div>
 
