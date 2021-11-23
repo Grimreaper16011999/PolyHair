@@ -39,7 +39,7 @@ try {
             <div class="trip col-lg-3 col-sm-4 col-6 mt-2 mb-2">
                 <div class="col-md-12">
                     <div class="img">
-                        <a href="">
+                        <a href="index.php?chi_tiet_dv&madv=<?=$row['ma_dich_vu']?>">
                             <img src="<?= $IMG_URL ?>/dichvu/<?=$row['hinh_anh']?>" alt="" width="100%" height="300px">
                         </a>
                         <div class="detail">
@@ -48,7 +48,7 @@ try {
                     </div>
                 </div>
                 <div class="info">
-                    <h4>Tên combo</h4>
+                    <h4><?=$row['ten_dich_vu']?></h4>
                     <span class="price">100 000đ</span>
                 </div>
             </div>

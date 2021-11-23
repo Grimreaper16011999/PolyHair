@@ -1,9 +1,21 @@
+<?php
+$bv_detail = bv_select_by_id($_GET['mabv']);
+
+
+?>
 <link rel="stylesheet" href="../resources/css/frontend/bai_viet.css">
 <div class="container pt-4 pb-4">
     <span>Trang chủ / Bài viết</span>
     <div class="row">
         <div class="col-sm-9">
-            Nội dung bài viết
+            <h2 class="mt-2"><?= $bv_detail['ten_bai_viet'] ?></h2>
+            <b><?= $bv_detail['mo_ta'] ?></b>
+            <p>
+                <img class="mt-2" src="<?= $IMG_URL ?>/baiviet/<?= $bv_detail['hinh_anh'] ?>" style="width:80%">
+            </p>
+            <div class="detail">
+                <?= $bv_detail['chi_tiet'] ?>
+            </div>
         </div>
         <div class="col-sm-3 mt-4 dichvu">
             <img src="../resources/img/dichvu/aside.jpg" alt="" width="100%">

@@ -1,4 +1,6 @@
 <?php
+
+
 if (isset($_GET['msg'])) {
     echo "<script type='text/javascript'>alert('$msg');</script>";
 }
@@ -14,7 +16,7 @@ try {
     }
     $firstIndex = ($page - 1) * $limit;
 
-    $list_nv = lich_hen_select_by_ma_tk_limit(1,$firstIndex, $limit);
+    $list_nv = lich_hen_select_by_ma_tk_limit($_SESSION['id_nhanvien'], $firstIndex, $limit);
     // Phân trang lấy số trang 
     $sql = "SELECT count(ma_don) as total FROM dat_lich";
     $countResult = pdo_query_one($sql);

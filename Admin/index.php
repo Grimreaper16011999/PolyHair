@@ -1,2 +1,2 @@
 <?php
-header("location:trang_chinh");
+header("location:login.php");

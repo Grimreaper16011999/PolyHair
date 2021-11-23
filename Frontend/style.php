@@ -41,7 +41,7 @@ try {
             <div class="trip col-lg-3 col-sm-4 col-6 mt-2 mb-2">
             <div class="col-md-12">
                 <div class="img">
-                    <a href="">
+                    <a href="index.php?chi_tiet_kieutoc&makt=<?= $value['ma_kieu_toc'] ?>">
                         <img src="<?= $IMG_URL ?>/mau_toc/<?= $value['hinh_anh'] ?>" alt="" width="100%">
                     </a>
                     <div class="detail">

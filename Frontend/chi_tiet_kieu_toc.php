@@ -1,7 +1,5 @@
 <?php
-    if(isset($_GET['masp'])){
-       $sp_detail = sp_select_by_id($_GET['masp']); 
-    }   
+    $kt_detail= kt_select_by_id($_GET['makt']);
 ?>
 
 <link rel="stylesheet" href="../resources/css/frontend/chi_tiet.css">
@@ -155,25 +153,25 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="mySlides" style="display:block">
-                        <img src="../resources/img/dichvu/dichvu.jpg" style="width:100%">
+                        <img src="<?= $IMG_URL ?>/mau_toc/<?= $kt_detail['hinh_anh'] ?>" style="width:100%">
                     </div>
 
                 </div>
                 <div class="col-sm-6">
-                    <span class="">Trang chủ / Sản phẩm</span>
-                    <h5 class="mt-4">Tên sản phẩm:  <?=$sp_detail['ten_san_pham']?></h5>
-                    <p class="price mt-2 mb-5">Giá : <?=$sp_detail['gia']?> đ</p>
-                    <a href="" class="btn btn-success">Đặt lịch ngay</a>
-            
+                    <span>Trang chủ / Kiểu tóc</span>
+                    <h5>Tên kiểu tóc : <?=$kt_detail['ten_kieu_toc']?></h5>
+                    <h6 class="mt-4 mb-5">Mô tả: <?=$kt_detail['mo_ta']?></h6>
+                    <a href="index.php?dat_lich" class="btn btn-success">Đặt lịch ngay</a>
                 </div>
 
             </div>
 
             <div>
                 <h4>Thông tin chi tiết</h4>
-                <p><?=$sp_detail['chi_tiet']?></p>
+                <div class="detail">
+                    <?=$kt_detail['chi_tiet']?>
+                </div>
             </div>
-
         </div>
     </div>
 </div>

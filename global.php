@@ -6,10 +6,12 @@ $IMG_URL = "$ROOT_URL/resources/img";
 $JS_URL = "$ROOT_URL/resources/js";
 $ADMIN_URL = "$ROOT_URL/Admin";
 $STAFF_URL = "$ROOT_URL/NhanVien";
-$FRONTEND_URL ="$ROOT_URL/Frontend";
-
+$FRONTEND_URL = "$ROOT_URL/Frontend";
 
 function exist_param($filename)
 {
     return array_key_exists($filename, $_REQUEST);
 }
+
+
+

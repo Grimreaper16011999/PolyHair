@@ -15,8 +15,8 @@ if (exist_param("add")) {
         extract($_POST);
         $ext_img = ['jpg', 'png'];
         $errors = [
-            'tai_khoan'=>'',
-            'mat_khau'=>'',
+            'tai_khoan' => '',
+            'mat_khau' => '',
             'ten_nhan_vien' => '',
             'email' => '',
             'hinh_anh' => ''
@@ -37,8 +37,12 @@ if (exist_param("add")) {
         } else {
             $hinh_anh = '1.jpg';
         }
-        if ($tai_khoan == null) {
-            $errors['tai_khoan'] = 'Dữ liệu không được để trống';
+        if (nhan_vien_exist($tai_khoan)) {
+            $errors['tai_khoan'] = 'Tên tài khoản đã tồn tại';
+        } else {
+            if ($tai_khoan == null) {
+                $errors['tai_khoan'] = 'Dữ liệu không được để trống';
+            }
         }
         if ($mat_khau == null) {
             $errors['mat_khau'] = 'Dữ liệu không được để trống';

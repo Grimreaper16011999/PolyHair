@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+if (!isset($_SESSION['id_nhanvien'])) {
+   header("location: ../login.php"); 
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -40,7 +48,7 @@
                     <div class="col col-sm-2 pt-3  border-end">
                         <span class="nav-item text-uppercase">
                             <i class="fas fa-undo"></i>
-                            <a class="nav-link d-inline-block" href="<?=$FRONTEND_URL?>">Vào website</a>
+                            <a class="nav-link d-inline-block" href="<?= $FRONTEND_URL ?>">Vào website</a>
                         </span>
                     </div>
                     <div class="col col-sm-2 pt-3">
@@ -53,13 +61,12 @@
                     <div class="col col-sm-2 pt-3 text-right" style="font-size: 25px;">
                         <i class="fas fa-bell"></i>
                     </div>
-                    <div class="col col-sm-2 row">
+                    <div class="col col-sm-2 row text-right">
                         <div class="col-sm-6 p-2">
-                            <img class=" rounded-circle" src="<?= $IMG_URL ?>/mau_toc/mau toc 1.jpg" alt="" width="80%">
-                        </div>
-                        <div class="col-sm-6 p-2">
-                            <span>Tên tk</span> <br>
-                            <span>ID: 123456</span>
+                            <span>Hi Admin</span> <br>
+                            <span>
+                                <a href="<?= $ADMIN_URL ?>/logout.php">Đăng xuất</a>
+                            </span>
                         </div>
                     </div>
 

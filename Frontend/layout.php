@@ -141,7 +141,7 @@ $bv = bv_select_limit_8();
                         <h5>Bài viết mới</h5>
                         <ul class="list-group list-group-flush">
                             <?php foreach ($bv as $key => $value) : ?>
-                                <li class="list-group-item address_1"><a href=""><?=$value['ten_bai_viet']?></a> </li>
+                                <li class="list-group-item address_1"><a href="index.php?chi_tiet_bai_viet&mabv=<?= $value['ma_bai_viet'] ?>"><?=$value['ten_bai_viet']?></a> </li>
                             <?php endforeach; ?>
                         </ul>
                     </div>

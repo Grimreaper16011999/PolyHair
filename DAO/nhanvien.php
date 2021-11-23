@@ -57,3 +57,14 @@ function nv_count(){
     $sql = "SELECT COUNT(ma_nhan_vien) as total FROM nhan_vien";
     return pdo_query_one($sql);
 }
+
+function nhan_vien_exist($tai_khoan)
+{
+    $sql = "SELECT count(*) FROM nhan_vien WHERE tai_khoan=?";
+    return pdo_query_value($sql, $tai_khoan) > 0;
+}
+function nhan_vien_select_by_tk($tai_khoan)
+{
+    $sql = "SELECT *FROM nhan_vien WHERE tai_khoan=?";
+    return pdo_query_one($sql, $tai_khoan);
+}

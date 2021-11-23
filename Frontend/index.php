@@ -10,6 +10,10 @@ require "../DAO/khuyenmai.php";
 require "../DAO/lich_hen.php";
 require "../DAO/baiviet.php";
 require "../DAO/kieutoc.php";
+require "../DAO/sanpham.php";
+require "../DAO/binhluan.php";
+
+
 
 
 
@@ -64,6 +68,8 @@ if (exist_param("dat_lich")) {
     $VIEW_NAME = "chi_tiet_mau_toc.php";
 } elseif (exist_param("chi_tiet_bai_viet")) {
     $VIEW_NAME = "chi_tiet_bai_viet.php";
+} elseif (exist_param("chi_tiet_kieutoc")) {
+    $VIEW_NAME = "chi_tiet_kieu_toc.php";
 } elseif (exist_param("chi_tiet_khuyenmai")) {
     $VIEW_NAME = "chi_tiet_khuyenmai.php";
 } elseif (exist_param("khuyen_mai")) {
