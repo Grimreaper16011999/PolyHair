@@ -40,7 +40,7 @@
                     <div class="col col-sm-2 pt-3  border-end">
                         <span class="nav-item text-uppercase">
                             <i class="fas fa-undo"></i>
-                            <a class="nav-link d-inline-block" href="">Về trang chủ</a>
+                            <a class="nav-link d-inline-block" href="<?=$FRONTEND_URL?>">Vào website</a>
                         </span>
                     </div>
                     <div class="col col-sm-2 pt-3">

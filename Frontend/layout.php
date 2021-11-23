@@ -93,7 +93,7 @@ $bv = bv_select_limit_8();
             </nav>
         </div>
     </header>
-    <div class="content" style="min-height: 200px; background-color: #ccc;" data-spy="scroll" data-target="#my-menu">
+    <div class="content" style="min-height: 200px; background-color: #fff;" data-spy="scroll" data-target="#my-menu">
         <marquee behavior="" direction="" style="color: red;;">
             Đặt lịch ngay gọi số : <b>098 310 84 04</b> Mr Lộc
         </marquee>

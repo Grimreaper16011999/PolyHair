@@ -4,7 +4,7 @@
         <ul class="nav flex-column nav-pills">
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fas fa-home"></i>
-                <a class="nav-link d-inline-block" aria-current="page" href="<?= $ADMIN_URL ?>/trang_chinh">Home</a>
+                <a class="nav-link d-inline-block" aria-current="page" href="<?= $ADMIN_URL ?>/trang_chinh">dashboard</a>
             </li>
             <li class="nav-item text-uppercase border-bottom ">
                 <i class="fas fa-archive"></i>
