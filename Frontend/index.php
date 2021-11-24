@@ -209,6 +209,39 @@ if (exist_param("dat_lich")) {
     $VIEW_NAME = "style.php";
 } elseif (exist_param("dien_dan")) {
     $VIEW_NAME = "dien_dan.php";
+    try {
+        $limit = 10;
+        $page = 1;
+        if (isset($_GET['page'])) {
+            $page = $_GET['page'];
+        }
+        if ($page <= 0) {
+            $page = 1;
+        }
+        $firstIndex = ($page - 1) * $limit;
+
+        $list_nv = bl_select_All_limit($firstIndex, $limit);
+        // Phân trang lấy số trang 
+        $sql = "SELECT count(ma_binh_luan) as total FROM binh_luan";
+        $countResult = pdo_query_one($sql);
+        $count = $countResult['total'];
+        $number = ceil($count / $limit);
+    } catch (PDOException $e) {
+        die($e->getMessage());
+    }
+    if (isset($_POST['btn_binhluan'])) {
+        extract($_POST);
+        $errors = [
+            'noidung' => ''
+        ];
+        if ($noi_dung == null) {
+            $errors['noidung'] = "Nội dung bình luận không để trống";
+        }
+        if (!array_filter($errors)) {
+            bl_insert($noi_dung, $_SESSION['id_user']);
+            header("location: index.php?dien_dan");
+        }
+    }
 } elseif (exist_param("register")) {
     $VIEW_NAME = "register.php";
     if (isset($_POST['btn_insert'])) {

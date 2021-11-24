@@ -33,7 +33,7 @@ function bl_select_All(){
 }
 
 function bl_select_All_limit($firstindex,$limit){
-    $sql = "SELECT *FROM binh_luan LIMIT $firstindex,$limit";
+    $sql = "SELECT *FROM binh_luan ORDER BY ma_binh_luan DESC LIMIT $firstindex,$limit";
     return pdo_query($sql);
 }
 // Truy vấn theo mã

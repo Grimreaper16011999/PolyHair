@@ -15,7 +15,6 @@
                     <label for="username" class="form-label">Tên tài khoản</label>
                     <input type="username" class="form-control" id="username" name="ten_tai_khoan" value="<?= isset($ten_tai_khoan) ? $ten_tai_khoan : '' ?>">
                     <span style="color: red;"><?= isset($errors['ten_tai_khoan']) ? $errors['ten_tai_khoan'] : '' ?></span>
-
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Mật khẩu</label>
