@@ -1,5 +1,6 @@
 <?php
 session_start();
 // die();
-session_destroy();
+unset($_SESSION['nhanvien']);
+unset($_SESSION['id_nhanvien']);
 header("Location: login.php");

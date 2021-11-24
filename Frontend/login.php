@@ -1,5 +1,5 @@
 <style>
-    a:hover{
+    a:hover {
         color: red;
     }
 </style>
@@ -12,15 +12,18 @@
             <h4>Đăng nhập tài khoản</h4>
             <form action="" method="POST">
                 <div class="mb-3">
-                    <label for="username" class="form-label">Số điện thoại</label>
-                    <input type="username" class="form-control" id="username" name="ten_tk">
+                    <label for="username" class="form-label">Tên tài khoản</label>
+                    <input type="username" class="form-control" id="username" name="ten_tai_khoan" value="<?= isset($ten_tai_khoan) ? $ten_tai_khoan : '' ?>">
+                    <span style="color: red;"><?= isset($errors['ten_tai_khoan']) ? $errors['ten_tai_khoan'] : '' ?></span>
+
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Mật khẩu</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" name="mat_khau">
+                    <span style="color: red;"><?= isset($errors['mat_khau']) ? $errors['mat_khau'] : '' ?></span>
                 </div>
                 <div class="mb-2">
-                    <a href="" style="text-decoration: none;">Quên mật khẩu?</a>
+                    <a href="index.php?forgotpass" style="text-decoration: none;">Quên mật khẩu?</a>
                 </div>
                 <?php if (isset($error)) : ?>
                     <div style="color: red">

@@ -4,6 +4,10 @@ if (isset($_GET['msg'])) {
 }
 $cs = coso_select_All();
 $bv = bv_select_limit_8();
+if (isset($_SESSION['id_user'])) {
+    $id_user = $_SESSION['id_user'];
+    $user = $_SESSION['user'];
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -41,12 +45,28 @@ $bv = bv_select_limit_8();
                         </div>
                     </div>
                     <div class="col-6 col-sm-6 d-flex justify-content-end">
-                        <div class="m-0 p-0">
-                            <a class="nav-link" href="index.php?login"> <i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
-                        </div>
-                        <div class="m-0 p-0">
-                            <a class="nav-link" href="index.php?register"> <i class="fas fa-registered"></i> Đăng kí</a>
-                        </div>
+                        <?php
+                        if (isset($_SESSION['user'])) {
+                            echo '
+                                <div class="m-0 p-0">
+                                    <a class="nav-link" href="index.php?quanlyuser"><i class="fas fa-user"></i> Hi ' . $_SESSION['user'] . '</a>
+                                </div>
+                                <div class="m-0 p-0">
+                                    <a class="nav-link" href="index.php?logout"> <i class="fas fa-sign-out-alt"></i></i> Đăng xuất</a>
+                                </div>
+                                ';
+                        } else {
+                            echo '
+                            <div class="m-0 p-0">
+                                <a class="nav-link" href="index.php?login"> <i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
+                            </div>
+                            <div class="m-0 p-0">
+                                <a class="nav-link" href="index.php?register"> <i class="fas fa-registered"></i> Đăng kí</a>
+                            </div>
+                                ';
+                        }
+                        ?>
+
                     </div>
                 </div>
             </div>
@@ -93,6 +113,7 @@ $bv = bv_select_limit_8();
             </nav>
         </div>
     </header>
+
     <div class="content" style="min-height: 200px; background-color: #fff;" data-spy="scroll" data-target="#my-menu">
         <marquee behavior="" direction="" style="color: red;;">
             Đặt lịch ngay gọi số : <b>098 310 84 04</b> Mr Lộc
@@ -100,6 +121,7 @@ $bv = bv_select_limit_8();
         <div class="main_content">
             <?php
             include $VIEW_NAME;
+
             ?>
             <div class="datlich d-flex flex-column">
                 <a class="btn btn-success rounded-pill" href="https://zalo.me/0983108404">Chat zalo</a>
@@ -108,6 +130,7 @@ $bv = bv_select_limit_8();
             </div>
         </div>
     </div>
+
     <footer class="p-0">
         <div class="footer_top pt-5 pb-5">
             <div class="container">
@@ -141,7 +164,7 @@ $bv = bv_select_limit_8();
                         <h5>Bài viết mới</h5>
                         <ul class="list-group list-group-flush">
                             <?php foreach ($bv as $key => $value) : ?>
-                                <li class="list-group-item address_1"><a href="index.php?chi_tiet_bai_viet&mabv=<?= $value['ma_bai_viet'] ?>"><?=$value['ten_bai_viet']?></a> </li>
+                                <li class="list-group-item address_1"><a href="index.php?chi_tiet_bai_viet&mabv=<?= $value['ma_bai_viet'] ?>"><?= $value['ten_bai_viet'] ?></a> </li>
                             <?php endforeach; ?>
                         </ul>
                     </div>

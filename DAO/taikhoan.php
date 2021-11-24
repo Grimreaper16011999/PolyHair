@@ -47,3 +47,19 @@ function tk_count(){
     return pdo_query_one($sql);
 }
 
+function tai_khoan_exist($ten_tai_khoan)
+{
+    $sql = "SELECT count(*) FROM tai_khoan WHERE ten_tai_khoan=?";
+    return pdo_query_value($sql, $ten_tai_khoan) > 0;
+}
+function tai_khoan_select_by_tk($ten_tai_khoan)
+{
+    $sql = "SELECT *FROM tai_khoan WHERE ten_tai_khoan=?";
+    return pdo_query_one($sql, $ten_tai_khoan);
+}
+// Hàm thay đổi mật khẩu
+function tai_khoan_change_password($mat_khau, $ma_tai_khoan)
+{
+    $sql = "UPDATE tai_khoan SET mat_khau=? WHERE ma_tai_khoan=?";
+    pdo_excute($sql, $mat_khau, $ma_tai_khoan);
+}

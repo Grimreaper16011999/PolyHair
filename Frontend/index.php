@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require "../global.php";
 require "../DAO/coso.php";
 require "../DAO/taikhoan.php";
@@ -60,8 +60,139 @@ if (exist_param("dat_lich")) {
     $VIEW_NAME = "store.php";
 } elseif (exist_param("login")) {
     $VIEW_NAME = "login.php";
+    if (isset($_POST['btn_DangNhap'])) {
+        extract($_POST);
+        $errors = [
+            'ten_tai_khoan' => '',
+            'mat_khau' => ''
+        ];
+        if (!tai_khoan_exist($ten_tai_khoan)) {
+            $errors['ten_tai_khoan'] = "Tên tài khoản không tồn tại";
+        } else {
+            $item = tai_khoan_select_by_tk($ten_tai_khoan);
+            if ($mat_khau != $item['mat_khau']) {
+                $errors['mat_khau'] = "Mật khẩu bạn nhập không chinh xác";
+            }
+            if (!array_filter($errors)) {
+                $_SESSION['user'] = $item['ten_tai_khoan'];
+                $_SESSION['id_user'] = $item['ma_tai_khoan'];
+                $MESSAGE = "Đăng nhập thành công";
+                header("location: index.php?dat_lich");
+            }
+        }
+    }
+} elseif (exist_param("logout")) {
+    unset($_SESSION['user']);
+    unset($_SESSION['id_user']);
+    header("location: index.php");
 } elseif (exist_param("chi_tiet")) {
     $VIEW_NAME = "chi_tiet.php";
+} elseif (exist_param("quanlyuser")) {
+    $VIEW_NAME = "quanlyuser.php";
+    $tk = tk_select_by_id($_SESSION['id_user']);
+    if (isset($_POST['btn_edit'])) {
+        extract($_POST);
+        $ext_img = ['jpg', 'png'];
+        $errors = [
+            'ten_tai_khoan' => '',
+            'mat_khau' => '',
+            're_mat_khau' => '',
+            'hinh_anh' => '',
+            'email' => '',
+            'ho_ten' => ''
+        ];
+
+        if ($_FILES['hinh']['size'] > 0) {
+            $file = $_FILES['hinh'];
+            $hinh_anh = '';
+            if ($file['size'] > 0 && $file['size'] <= 2 * 1024 * 1024) {
+                $hinh_anh = $file['name'];
+                $ext = pathinfo($hinh_anh, PATHINFO_EXTENSION);
+                if (!in_array($ext, $ext_img)) {
+                    $errors['hinh_anh'] = "Bạn phải chọn file png hoặc jpg";
+                }
+            } else {
+                $errors['hinh_anh'] = "Bạn phải chọn file <=2MB";
+            }
+        } else {
+            $hinh_anh = $tk['hinh_anh'];
+        }
+        if ($ten_tai_khoan == null) {
+            $errors['ten_tai_khoan'] = 'Dữ liệu không được để trống';
+        }
+        if ($ho_ten == null) {
+            $errors['ho_ten'] = 'Dữ liệu không được để trống';
+        }
+        if ($email == null) {
+            $errors['email'] = 'Dữ liệu không được để trống';
+        }
+        $regex = "/([a-z0-9_]+|[a-z0-9_]+\.[a-z0-9_]+)@(([a-z0-9]|[a-z0-9]+\.[a-z0-9]+)+\.([a-z]{2,4}))/i";
+        if (!preg_match($regex, $email)) {
+            $errors['email'] = 'sai định dạng email';
+        }
+        if ($mat_khau == null) {
+            $errors['mat_khau'] = 'Dữ liệu không được để trống';
+        }
+        if ($re_mat_khau != $mat_khau) {
+            $errors['re_mat_khau'] = 'Mật khẩu xác nhận không trùng khớp';
+        }
+
+        if (!array_filter($errors)) {
+            tk_update($ten_tai_khoan, $ho_ten, $hinh_anh, $email, $trang_thai, $ma_tai_khoan);
+            if ($file['size'] != 0) {
+                move_uploaded_file($file['tmp_name'], "../resources/img/taikhoan/" . $hinh_anh);
+            }
+            $MESSAGE = "Sửa dữ liệu thành công";
+            header('location: index.php?msg=' . $MESSAGE);
+        }
+    }
+} elseif (exist_param("changepass")) {
+    $VIEW_NAME = "changepass.php";
+    if (isset($_POST['btn-change_pass'])) {
+        extract($_POST);
+        $errors = [
+            'mk_old' => '',
+            'mat_khau' => '',
+            're_pass' => ''
+        ];
+        $kh = tk_select_by_id($_SESSION['id_user']);
+        if ($kh['mat_khau'] != $mat_khau_old || $mat_khau_old == null) {
+            $errors['mk_old'] = "mật khẩu cũ không đúng";
+        }
+        if ($mat_khau == null) {
+            $errors['mat_khau'] = "mật khẩu không được để trông";
+        }
+        if ($re_mat_khau != $mat_khau) {
+            $errors['re_pass'] = "mật khẩu không trùng khớp";
+        }
+        if (!array_filter($errors)) {
+            tai_khoan_change_password($mat_khau, $_SESSION['id_user']);
+            $MESSAGE = "Thay đổi mật khẩu thành công";
+            header('location: index.php?msg=' . $MESSAGE);
+        }
+    }
+} elseif (exist_param("forgotpass")) {
+    $VIEW_NAME = "forgotpass.php";
+    if (isset($_POST['btn_forgot'])) {
+        extract($_POST);
+        $errors = [
+            'ten_tai_khoan' => '',
+            'email' => ''
+        ];
+        if (tai_khoan_select_by_tk($ten_tai_khoan) == false) {
+            $errors['ten_tai_khoan'] = "Tài khoản không tồn tại";
+        } else {
+            $kh = tai_khoan_select_by_tk($ten_tai_khoan);
+            if ($kh['email'] != $email) {
+                $errors['email'] = "Bạn nhập sai địa chỉ email";
+            }
+        }
+        if (!array_filter($errors)) {
+            $mk = "Mật khẩu của bạn là: " . $kh['mat_khau'];
+        }
+    }
+} elseif (exist_param("lichsudon")) {
+    $VIEW_NAME = "lichsudon.php";
 } elseif (exist_param("chi_tiet_dv")) {
     $VIEW_NAME = "chi_tiet_dich_vu.php";
 } elseif (exist_param("chi_tiet_mt")) {
@@ -80,6 +211,65 @@ if (exist_param("dat_lich")) {
     $VIEW_NAME = "dien_dan.php";
 } elseif (exist_param("register")) {
     $VIEW_NAME = "register.php";
+    if (isset($_POST['btn_insert'])) {
+        extract($_POST);
+        $ext_img = ['jpg', 'png'];
+        $errors = [
+            'ten_tai_khoan' => '',
+            'mat_khau' => '',
+            're_mat_khau' => '',
+            'hinh_anh' => '',
+            'email' => '',
+            'ho_ten' => ''
+        ];
+
+        if ($_FILES['hinh']['size'] > 0) {
+            $file = $_FILES['hinh'];
+            $hinh_anh = '';
+            if ($file['size'] > 0 && $file['size'] <= 2 * 1024 * 1024) {
+                $hinh_anh = $file['name'];
+                $ext = pathinfo($hinh_anh, PATHINFO_EXTENSION);
+                if (!in_array($ext, $ext_img)) {
+                    $errors['hinh_anh'] = "Bạn phải chọn file png hoặc jpg";
+                }
+            } else {
+                $errors['hinh_anh'] = "Bạn phải chọn file <=2MB";
+            }
+        } else {
+            $hinh_anh = 'tk.jpg';
+        }
+        if (tai_khoan_exist($ten_tai_khoan)) {
+            $errors['ten_tai_khoan'] = 'Tên tài khoản đã tồn tại';
+        }
+        if ($ho_ten == null) {
+            $errors['ho_ten'] = 'Dữ liệu không được để trống';
+        }
+        if ($ten_tai_khoan == null) {
+            $errors['ten_tai_khoan'] = 'Dữ liệu không được để trống';
+        }
+        if ($email == null) {
+            $errors['email'] = 'Dữ liệu không được để trống';
+        }
+        $regex = "/([a-z0-9_]+|[a-z0-9_]+\.[a-z0-9_]+)@(([a-z0-9]|[a-z0-9]+\.[a-z0-9]+)+\.([a-z]{2,4}))/i";
+        if (!preg_match($regex, $email)) {
+            $errors['email'] = 'sai định dạng email';
+        }
+        if ($mat_khau == null) {
+            $errors['mat_khau'] = 'Dữ liệu không được để trống';
+        }
+        if ($re_mat_khau != $mat_khau) {
+            $errors['re_mat_khau'] = 'Mật khẩu xác nhận không trùng khớp';
+        }
+
+        if (!array_filter($errors)) {
+            tk_insert($ten_tai_khoan, $ho_ten, $hinh_anh, $mat_khau, $email, $trang_thai);
+            if ($file['size'] != 0) {
+                move_uploaded_file($file['tmp_name'], "../resources/img/taikhoan/" . $hinh_anh);
+            }
+            $MESSAGE = "Đăng ký tài khoản thành công";
+            header('location: index.php?login&msg=' . $MESSAGE);
+        }
+    }
 } else {
     $VIEW_NAME = "home.php";
 }

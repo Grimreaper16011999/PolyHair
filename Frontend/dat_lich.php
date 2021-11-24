@@ -14,11 +14,11 @@ $dv = dv_select_All();
             <form action="" method="post" class="col-12 col-sm-6" class="border border-1">
                 <div class="form-group mt-4">
                     <label for="">Mã tài khoản</label><br>
-                    <input type="text" class="form-control" name="ma_tai_khoan" value="20" readonly>
+                    <input type="text" class="form-control" name="ma_tai_khoan" value="<?=$_SESSION['id_user']?>" readonly>
                 </div>
                 <div class="form-group mt-4">
                     <label for="">Số điện thoại</label><br>
-                    <input type="text" class="form-control" name="so_dien_thoai" value="0983108404">
+                    <input type="text" class="form-control" name="so_dien_thoai" placeholder="0xxxxxxxxxx" value="">
                     <span class="" style="color: red;"><?= isset($errors['so_dien_thoai']) ? $errors['so_dien_thoai'] : '' ?></span>
                 </div>
                 <div class="form-group mt-4">

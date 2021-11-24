@@ -39,6 +39,11 @@ function lich_hen_select_All_limit($firstindex,$limit){
     $sql = "SELECT *FROM dat_lich LIMIT $firstindex,$limit";
     return pdo_query($sql);
 }
+function lich_hen_select_by_tk($ma_tai_khoan,$firstindex,$limit){
+    $sql = "SELECT *FROM dat_lich WHERE ma_tai_khoan=? LIMIT $firstindex,$limit";
+    return pdo_query($sql,$ma_tai_khoan);
+}
+
 function lich_hen_select_by_ma_tk_limit($ma_nhan_vien,$firstindex,$limit){
     $sql = "SELECT *FROM dat_lich WHERE ma_nhan_vien=?  LIMIT $firstindex,$limit";
     return pdo_query($sql,$ma_nhan_vien);

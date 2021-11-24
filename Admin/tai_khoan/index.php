@@ -40,6 +40,9 @@ if (exist_param("add")) {
         if ($ho_ten == null) {
             $errors['ho_ten'] = 'Dữ liệu không được để trống';
         }
+        if (tai_khoan_exist($ten_tai_khoan)) {
+            $errors['ten_tai_khoan'] = 'Tên tài khoản đã tồn tại';
+        } 
         if ($ten_tai_khoan == null) {
             $errors['ten_tai_khoan'] = 'Dữ liệu không được để trống';
         }

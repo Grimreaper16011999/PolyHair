@@ -73,7 +73,7 @@ $dh = lich_hen_select_by_id($_GET['id'])
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="trang_thai" value="3" <?= ($dh['trang_thai'] == 2) ? 'checked' : '' ?>>
+                <input class="form-check-input" type="radio" name="trang_thai" value="2" <?= ($dh['trang_thai'] == 2) ? 'checked' : '' ?>>
                 <label class="form-check-label" for="trang_thai2" style="color: red;">
                     Thất bại
                 </label>

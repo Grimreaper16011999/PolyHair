@@ -7,8 +7,12 @@
                 <a class="nav-link d-inline-block" aria-current="page" href="">Home</a>
             </li>
             <li class="nav-item text-uppercase border-bottom">
+                <i class="fas fa-users"></i>
+                <a class="nav-link d-inline-block" aria-current="page" href="<?= $STAFF_URL ?>/nhan_vien">Quản lý tài khoản</a>
+            </li>
+            <li class="nav-item text-uppercase border-bottom">
                 <i class="fas fa-paper-plane"></i>
-                <a class="nav-link d-inline-block" href="<?= $STAFF_URL?>/lich_hen">Quản lý lịch hẹn</a>
+                <a class="nav-link d-inline-block" href="<?= $STAFF_URL ?>/lich_hen">Quản lý lịch hẹn</a>
             </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fas fa-chart-pie"></i>
