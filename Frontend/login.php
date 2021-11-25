@@ -10,9 +10,9 @@
         </div>
         <div class="col-12 col-xs-6 col-sm-4 order-0 p-5 mt-2" style="border: 1px solid #ccc;">
             <h4>Đăng nhập tài khoản</h4>
-            <form action="" method="POST">
+            <form action="index.php?login" method="POST">
                 <div class="mb-3">
-                    <label for="username" class="form-label">Tên tài khoản</label>
+                    <label for="username" class="form-label">Số điện thoại</label>
                     <input type="username" class="form-control" id="username" name="ten_tai_khoan" value="<?= isset($ten_tai_khoan) ? $ten_tai_khoan : '' ?>">
                     <span style="color: red;"><?= isset($errors['ten_tai_khoan']) ? $errors['ten_tai_khoan'] : '' ?></span>
                 </div>

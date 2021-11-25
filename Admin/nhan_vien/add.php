@@ -24,14 +24,8 @@
                 <input type="password" class="form-control" placeholder="Password" name="mat_khau" value="<?= isset($mat_khau) ? $mat_khau : '' ?>">
                 <p class="errors" style="color: red;"><?= isset($errors['mat_khau']) ? $errors['mat_khau'] : '' ?></p>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="display: none;">
                 <label for="name">Vai trò</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="vai_tro" value="1">
-                    <label class="form-check-label" for="trang_thai1" style="color: red;">
-                        Quản trị viên
-                    </label>
-                </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="vai_tro" value="0" checked>
                     <label class="form-check-label" for="trang_thai2" style="color: blue;">

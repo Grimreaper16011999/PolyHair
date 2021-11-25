@@ -17,8 +17,9 @@ try {
     $firstIndex = ($page - 1) * $limit;
 
     $list_nv = lich_hen_select_by_ma_tk_limit($_SESSION['id_nhanvien'], $firstIndex, $limit);
+    $manv =$_SESSION['id_nhanvien'];
     // Phân trang lấy số trang 
-    $sql = "SELECT count(ma_don) as total FROM dat_lich";
+    $sql = "SELECT count(ma_don) as total FROM dat_lich WHERE ma_nhan_vien=$manv";
     $countResult = pdo_query_one($sql);
     $count = $countResult['total'];
     $number = ceil($count / $limit);
@@ -47,7 +48,6 @@ try {
                 <th>Trạng thái</th>
                 <th colspan="2" class="text-center">Tác vụ</th>
             </tr>
-
         </thead>
         <?php
         foreach ($list_nv as $key => $row) : ?>
@@ -85,7 +85,7 @@ try {
             </tbody>
         <?php endforeach; ?>
     </table>
-    <button onclick="return confirm('Bạn có chắc muốn xoá không?')" type="submit" class="btn btn-danger" name="delete">Xoá mục đã chọn</button>
+    <!-- <button onclick="return confirm('Bạn có chắc muốn xoá không?')" type="submit" class="btn btn-danger" name="delete">Xoá mục đã chọn</button> -->
 </form>
 <?php
 if ($number > 1) {

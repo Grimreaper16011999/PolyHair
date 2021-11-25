@@ -55,6 +55,7 @@ if (exist_param("add")) {
         }
 
         if (!array_filter($errors)) {
+            $mat_khau = md5($mat_khau);
             nv_insert($ten_nhan_vien, $hinh_anh, $email, $ma_co_so, $tai_khoan, $mat_khau, $vai_tro);
             if ($file['size'] != 0) {
                 move_uploaded_file($file['tmp_name'], "../../resources/img/nhanvien/" . $hinh_anh);

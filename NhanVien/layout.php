@@ -53,7 +53,6 @@ if (!isset($_SESSION['id_nhanvien'])) {
                         </span>
                     </div>
                     <div class="col-sm-2"></div>
-
                     <div class="col col-sm-2 pt-3 text-right" style="font-size: 25px;">
                         <i class="fas fa-bell"></i>
                     </div>
@@ -63,11 +62,10 @@ if (!isset($_SESSION['id_nhanvien'])) {
                         </div>
                         <div class="col-sm-6 p-2">
                             <span>hi <?= $_SESSION['nhanvien'] ?></span> <br>
-                            <span> <a href="<?= $ADMIN_URL ?>/logout.php">Đăng xuất</a>
+                            <span> <a href="<?= $STAFF_URL ?>/logout.php">Đăng xuất</a>
                             </span>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

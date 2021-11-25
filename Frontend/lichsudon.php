@@ -17,8 +17,9 @@
         $firstIndex = ($page - 1) * $limit;
 
         $list_nv = lich_hen_select_by_tk($_SESSION['id_user'],$firstIndex, $limit);
+        $ma_tk = $_SESSION['id_user'];
         // Phân trang lấy số trang 
-        $sql = "SELECT count(ma_don) as total FROM dat_lich";
+        $sql = "SELECT count(ma_don) as total FROM dat_lich WHERE ma_tai_khoan=$ma_tk";
         $countResult = pdo_query_one($sql);
         $count = $countResult['total'];
         $number = ceil($count / $limit);
@@ -80,7 +81,7 @@
         <ul class="pagination justify-content-end">
             <?php
             if ($page > 1) {
-                echo ' <li class="page-item"><a href="?page=' . ($page - 1) . '" class="page-link">Previous</a></li>';
+                echo ' <li class="page-item"><a href="?lichsudon&page=' . ($page - 1) . '" class="page-link">Previous</a></li>';
             }
             ?>
 
@@ -90,25 +91,25 @@
             for ($i = 0; $i < $number; $i++) {
                 if (!in_array($i + 1, $avariablePage)) {
                     if (!$isFirst && $page > 3) {
-                        echo '<li class="page-item"><a href="?page=' . ($page - 2) . '" class="page-link">...</a></li> ';
+                        echo '<li class="page-item"><a href="?lichsudon&page=' . ($page - 2) . '" class="page-link">...</a></li> ';
                         $isFirst = true;
                     }
                     if (!$isLast && $i > $page) {
-                        echo '<li class="page-item"><a href="?page=' . ($page + 2) . '" class="page-link">...</a></li> ';
+                        echo '<li class="page-item"><a href="?lichsudon&page=' . ($page + 2) . '" class="page-link">...</a></li> ';
                         $isLast = true;
                     }
                     continue;
                 }
                 if ($page == ($i + 1)) {
-                    echo '<li class="page-item active"><a href="?page=' . ($i + 1) . '" class="page-link">' . ($i + 1) . '</a></li> ';
+                    echo '<li class="page-item active"><a href="?lichsudon&page=' . ($i + 1) . '" class="page-link">' . ($i + 1) . '</a></li> ';
                 } else {
-                    echo '<li class="page-item"><a href="?page=' . ($i + 1) . '" class="page-link">' . ($i + 1) . '</a></li> ';
+                    echo '<li class="page-item"><a href="?lichsudon&page=' . ($i + 1) . '" class="page-link">' . ($i + 1) . '</a></li> ';
                 }
             }
             ?>
             <?php
             if ($page < $number) {
-                echo ' <li class="page-item"><a href="?page=' . ($page + 1) . '" class="page-link">Next</a></li>';
+                echo ' <li class="page-item"><a href="?lichsudon&page=' . ($page + 1) . '" class="page-link">Next</a></li>';
             }
             ?>
         </ul>

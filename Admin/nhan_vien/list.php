@@ -37,7 +37,7 @@ try {
                 </th>
                 <th>STT</th>
                 <th>Tài khoản</th>
-                <th>Mật khẩu</th>
+                <!-- <th>Mật khẩu</th> -->
                 <th>Tên nhân viên</th>
                 <th>Hình ảnh</th>
                 <th>Email</th>
@@ -56,7 +56,7 @@ try {
                     </td>
                     <td><?= ++$key ?></td>
                     <td><?= $row['tai_khoan'] ?></td>
-                    <td><?= $row['mat_khau'] ?></td>
+                    
                     <td><?= $row['ten_nhan_vien'] ?></td>
                     <td>
                         <img src="<?= $IMG_URL ?>/nhanvien/<?= $row['hinh_anh'] ?>" alt="" width="100px">

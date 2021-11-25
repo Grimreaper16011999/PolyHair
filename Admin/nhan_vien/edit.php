@@ -36,14 +36,8 @@ $nv = nv_select_by_id($_GET['id']);
                     ?>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="display: none;">
                 <label for="name">Vai trò</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="vai_tro" value="1" <?=($nv['vai_tro']==1)?'checked':''?>>
-                    <label class="form-check-label" for="vai_tro1" style="color: green;">
-                        Quản trị viên
-                    </label>
-                </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="vai_tro" value="0" <?=($nv['vai_tro']==0)?'checked':''?>>
                     <label class="form-check-label" for="vai_tro2" style="color: red;">

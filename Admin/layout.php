@@ -1,9 +1,7 @@
 <?php
 
 session_start();
-if (!isset($_SESSION['id_nhanvien'])) {
-   header("location: ../login.php"); 
-}
+
 ?>
 
 <!DOCTYPE html>

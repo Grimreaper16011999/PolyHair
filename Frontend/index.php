@@ -20,6 +20,10 @@ require "../DAO/binhluan.php";
 extract($_REQUEST);
 if (exist_param("dat_lich")) {
     $VIEW_NAME = "dat_lich.php";
+    if (!isset($_SESSION['user'])) {
+        $MESSAGE = "Bạn cần đăng nhập để đặt lịch";
+        header('location: index.php?login&msg=' . $MESSAGE);
+    }
     if (isset($_POST['btn_dat_lich'])) {
         extract($_POST);
         $errors = [
@@ -66,18 +70,26 @@ if (exist_param("dat_lich")) {
             'ten_tai_khoan' => '',
             'mat_khau' => ''
         ];
-        if (!tai_khoan_exist($ten_tai_khoan)) {
-            $errors['ten_tai_khoan'] = "Tên tài khoản không tồn tại";
+        if ($ten_tai_khoan == null) {
+            $errors['ten_tai_khoan'] = 'Số điện thoại để trống';
         } else {
-            $item = tai_khoan_select_by_tk($ten_tai_khoan);
-            if ($mat_khau != $item['mat_khau']) {
-                $errors['mat_khau'] = "Mật khẩu bạn nhập không chinh xác";
-            }
-            if (!array_filter($errors)) {
-                $_SESSION['user'] = $item['ten_tai_khoan'];
-                $_SESSION['id_user'] = $item['ma_tai_khoan'];
-                $MESSAGE = "Đăng nhập thành công";
-                header("location: index.php?dat_lich");
+            if (!preg_match('/^(09|03|07|08|05)+([0-9]{8})$/', $ten_tai_khoan)) {
+                $errors['ten_tai_khoan'] = 'Số điện thoại không hợp lệ';
+            } else {
+                if (!tai_khoan_exist($ten_tai_khoan)) {
+                    $errors['ten_tai_khoan'] = "Tên tài khoản không tồn tại";
+                } else {
+                    $item = tai_khoan_select_by_tk($ten_tai_khoan);
+                    if ($mat_khau != $item['mat_khau']) {
+                        $errors['mat_khau'] = "Mật khẩu bạn nhập không chinh xác";
+                    }
+                    if (!array_filter($errors)) {
+                        $_SESSION['user'] = $item['ten_tai_khoan'];
+                        $_SESSION['id_user'] = $item['ma_tai_khoan'];
+                        $MESSAGE = "Đăng nhập thành công";
+                        header("location: index.php?dat_lich");
+                    }
+                }
             }
         }
     }

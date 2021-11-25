@@ -18,14 +18,14 @@ $dv = dv_select_All();
                 </div>
                 <div class="form-group mt-4">
                     <label for="">Số điện thoại</label><br>
-                    <input type="text" class="form-control" name="so_dien_thoai" placeholder="0xxxxxxxxxx" value="">
+                    <input type="text" class="form-control" name="so_dien_thoai" placeholder="0xxxxxxxxxx" value="<?=tk_select_by_id($_SESSION['id_user'])['ten_tai_khoan']?>">
                     <span class="" style="color: red;"><?= isset($errors['so_dien_thoai']) ? $errors['so_dien_thoai'] : '' ?></span>
                 </div>
                 <div class="form-group mt-4">
                     <label for="">Chọn nơi cắt *</label>
                     <div class="row">
                         <?php foreach ($cs as $key => $value) : ?>
-                            <div class="col-sm-4">
+                            <div class="col-sm-6">
                                 <input type="radio" class="" name="ma_co_so" value="<?= $value['ma_co_so'] ?>" onclick="handleClick(this);"> <?= $value['dia_chi'] ?>
                             </div>
                         <?php endforeach; ?>
