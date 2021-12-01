@@ -56,7 +56,7 @@ $km = km_select_limit_8();
                 <div class="col-md-12">
                     <div class="img">
                         <a href="index.php?chi_tiet_dv&madv=<?=$value['ma_dich_vu']?>">
-                            <img src="<?= $IMG_URL ?>/dichvu/<?= $value['hinh_anh'] ?>" alt="" width="100%">
+                            <img src="<?= $IMG_URL ?>/dichvu/<?= $value['hinh_anh'] ?>" alt="" width="274" height="300">
                         </a>
                         <div class="info">
                             <h4><?= $value['ten_dich_vu'] ?></h4>

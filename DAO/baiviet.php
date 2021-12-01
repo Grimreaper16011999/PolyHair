@@ -52,3 +52,9 @@ function bv_select_limit_8(){
     return pdo_query($sql);
 }
 
+function bv_select_limit_5(){
+    $sql = "SELECT *FROM bai_viet ORDER BY ma_bai_viet DESC LIMIT 5";
+    return pdo_query($sql);
+}
+
+

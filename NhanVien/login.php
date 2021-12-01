@@ -19,7 +19,7 @@ if (isset($_POST['btn_DangNhap'])) {
         if (!array_filter($errors)) {
             $_SESSION['nhanvien'] = $item['tai_khoan'];
             $_SESSION['id_nhanvien'] = $item['ma_nhan_vien'];
-                header("location: trang_chinh");
+                header("location: lich_hen");
         }
     }
 }

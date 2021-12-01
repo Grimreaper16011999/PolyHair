@@ -105,7 +105,7 @@ if (isset($_SESSION['id_user'])) {
                                 <a class="nav-link" href="index.php?dat_lich"><i class="fas fa-user"></i> Đặt lịch</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index.php?dien_dan"><i class="fas fa-comments"></i> Diễn đàn</a>
+                                <a class="nav-link" href="index.php?dien_dan"><i class="fas fa-comments"></i> Góp ý</a>
                             </li>
                         </ul>
                     </div>
@@ -208,7 +208,7 @@ if (isset($_SESSION['id_user'])) {
                         <a class="nav-link" href="index.php?dat_lich"><i class="fas fa-user"></i> Đặt lịch</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?dien_dan"><i class="fas fa-comments"></i> Diễn đàn</a>
+                        <a class="nav-link" href="index.php?dien_dan"><i class="fas fa-comments"></i> Góp ý</a>
                     </li>
                 </ul>
             </div>

@@ -1,6 +1,6 @@
 <?php
 try {
-    $limit = 4;
+    $limit = 8;
     $page = 1;
     if (isset($_GET['page'])) {
         $page = $_GET['page'];
@@ -40,7 +40,7 @@ try {
                 <div class="col-md-12">
                     <div class="img">
                         <a href="index.php?chi_tiet_dv&madv=<?=$row['ma_dich_vu']?>">
-                            <img src="<?= $IMG_URL ?>/dichvu/<?=$row['hinh_anh']?>" alt="" width="100%" height="300px">
+                            <img src="<?= $IMG_URL ?>/dichvu/<?=$row['hinh_anh']?>" alt="" width="274" height="300">
                         </a>
                         <div class="detail">
                             <span>Xem chi tiết</span>

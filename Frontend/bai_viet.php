@@ -23,6 +23,7 @@ try {
 } catch (PDOException $e) {
     die($e->getMessage());
 }
+$dv_5 = dv_select_limit_5();
 
 ?>
 <link rel="stylesheet" href="../resources/css/frontend/bai_viet.css">
@@ -34,9 +35,9 @@ try {
                 <?php foreach ($list_nv as $key => $row) : ?>
                     <div class="col-sm-4 pt-4">
                         <div class="col-sm-12">
-                            <div class="img">
+                            <div class="img" style="overflow: hidden; height:160px">
                                 <a href="index.php?chi_tiet_bai_viet&mabv=<?= $row['ma_bai_viet'] ?>">
-                                    <img src="<?= $IMG_URL ?>/baiviet/<?= $row['hinh_anh'] ?>" alt="" width="100%" height="160px">
+                                    <img src="<?= $IMG_URL ?>/baiviet/<?= $row['hinh_anh'] ?>" alt="" width="100%">
                                 </a>
                             </div>
                             <div class="name"><?= $row['ten_bai_viet'] ?></div>
@@ -97,71 +98,22 @@ try {
             <img src="../resources/img/dichvu/aside.jpg" alt="" width="100%">
             <h4 class="mt-4">Dịch vụ tại PolyHair</h4>
             <div class="row">
-                <div class="col-sm-12 mt-2">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <a href="">
-                                <img src="../resources/img/dichvu/dichvu.jpg" alt="" width="100%">
-                            </a>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="name">Tên dịch vụ</div>
-                            <div class="price">100 000 đ</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 mt-2">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <a href="">
-                                <img src="../resources/img/dichvu/dichvu.jpg" alt="" width="100%">
-                            </a>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="name">Tên dịch vụ</div>
-                            <div class="price">100 000 đ</div>
+                <?php foreach ($dv_5 as $key => $value) : ?>
+
+                    <div class="col-sm-12 mt-2">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <a href="index.php?chi_tiet_dv&madv=<?= $value['ma_dich_vu'] ?>">
+                                    <img src="../resources/img/dichvu/<?=$value['hinh_anh']?>" alt="" width="100%">
+                                </a>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="name"><?=$value['ten_dich_vu']?></div>
+                                <div class="price"><?=$value['gia']?> đ</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-12 mt-2">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <a href="">
-                                <img src="../resources/img/dichvu/dichvu.jpg" alt="" width="100%">
-                            </a>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="name">Tên dịch vụ</div>
-                            <div class="price">100 000 đ</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 mt-2">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <a href="">
-                                <img src="../resources/img/dichvu/dichvu.jpg" alt="" width="100%">
-                            </a>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="name">Tên dịch vụ</div>
-                            <div class="price">100 000 đ</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 mt-2">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <a href="">
-                                <img src="../resources/img/dichvu/dichvu.jpg" alt="" width="100%">
-                            </a>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="name">Tên dịch vụ</div>
-                            <div class="price">100 000 đ</div>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>

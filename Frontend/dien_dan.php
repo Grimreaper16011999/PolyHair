@@ -2,7 +2,7 @@
 
 
 ?>
-<h3 class="text-center">Trang diễn đàn</h3>
+<h3 class="text-center">Quý khách hàng vui lòng để lại nhận xét để chúng tôi cải thiện dịch vụ tối ưu nhất</h3>
 <div class="container mt-5">
     <div class="row">
         <h5>Bình luận</h5>

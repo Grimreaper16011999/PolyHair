@@ -48,7 +48,7 @@ $dv = dv_select_All();
                     <label for="">Giờ cắt *</label><br>
                     <div class="row">
                         <?php foreach ($kg as $key => $value) : ?>
-                            <div class="col-sm-3 col-6">
+                            <div class="col-sm-4 col-6">
                                 <input type="radio" class="" name="ma_khung_gio" value="<?= $value['ma_khung_gio'] ?>"> <?= $value['thoi_gian'] ?>
                             </div>
                         <?php endforeach; ?>

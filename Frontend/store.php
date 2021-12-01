@@ -46,7 +46,7 @@ try {
                 <div class="col-md-12">
                     <div class="img">
                         <a href="index.php?chi_tiet&masp=<?=$row['ma_san_pham']?>">
-                            <img src="<?= $IMG_URL ?>/product/<?=$row['hinh_anh']?>" alt="" width="100%" height="180px">
+                            <img src="<?= $IMG_URL ?>/product/<?=$row['hinh_anh']?>" alt="" width="274" height="300">
                         </a>
                         <div class="detail">
                             <span>Xem chi tiết</span>

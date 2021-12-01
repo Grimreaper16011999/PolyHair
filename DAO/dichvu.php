@@ -56,3 +56,7 @@ function dv_select_limit_8(){
     $sql = "SELECT *FROM dich_vu ORDER BY ma_dich_vu DESC LIMIT 8";
     return pdo_query($sql);
 }
+function dv_select_limit_5(){
+    $sql = "SELECT *FROM dich_vu ORDER BY ma_dich_vu DESC LIMIT 5";
+    return pdo_query($sql);
+}

@@ -10,6 +10,11 @@
                 <i class="fas fa-archive"></i>
                 <a class="nav-link d-inline-block" aria-current="page" href="<?= $ADMIN_URL ?>/co_so">Quản trị cơ sở</a>
             </li>
+
+            <li class="nav-item text-uppercase border-bottom">
+                <i class="fas fa-user-lock"></i>
+                <a class="nav-link d-inline-block" aria-current="page" href="<?= $ADMIN_URL ?>/quan_tri">Quản trị viên</a>
+            </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fas fa-users"></i>
                 <a class="nav-link d-inline-block" aria-current="page" href="<?= $ADMIN_URL ?>/nhan_vien">Quản lý nhân sự</a>
@@ -48,10 +53,10 @@
                 <i class="fas fa-comments"></i>
                 <a class="nav-link d-inline-block " href="<?= $ADMIN_URL ?>/binh_luan">Quản lý bình luận</a>
             </li>
-            <li class="nav-item text-uppercase border-bottom">
+            <!-- <li class="nav-item text-uppercase border-bottom">
                 <i class="fas fa-chart-pie"></i>
                 <a class="nav-link d-inline-block" href="">Thống kê</a>
-            </li>
+            </li> -->
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fas fa-sign-out-alt"></i>
                 <a class="nav-link d-inline-block" href="">Đăng xuất</a>

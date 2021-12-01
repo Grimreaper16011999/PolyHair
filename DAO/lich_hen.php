@@ -58,3 +58,11 @@ function lh_count(){
     $sql = "SELECT COUNT(ma_don) as total FROM dat_lich";
     return pdo_query_one($sql);
 }
+
+// Lịch hẹn hôm nay 
+
+function lich_hen_date_now($ngay_cat,$firstindex,$limit){
+   
+    $sql = "SELECT *FROM dat_lich WHERE ngay_cat=$ngay_cat LIMIT $firstindex,$limit";
+    return pdo_query($sql,$ngay_cat);
+}

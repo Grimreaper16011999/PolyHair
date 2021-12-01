@@ -1,28 +1,25 @@
 <?php
 session_start();
 require_once "../global.php";
-require_once "../DAO/nhanvien.php";
+require_once "../DAO/quantri.php";
 if (isset($_POST['btn_DangNhap'])) {
     extract($_POST);
     $errors = [
         'tai_khoan' => '',
         'mat_khau' => ''
     ];
-    if (!nhan_vien_exist($tai_khoan)) {
+    if (!quan_tri_exist($tai_khoan)) {
         $errors['tai_khoan'] = "Tên tài khoản không tồn tại";
     } else {
-        $item = nhan_vien_select_by_tk($tai_khoan);
-        if ($mat_khau != $item['mat_khau']) {
+        $item = quan_tri_select_by_tk($tai_khoan);
+        $mat_khau = md5($mat_khau);
+        if ($mat_khau != $item['password']) {
             $errors['mat_khau'] = "Mật khẩu bạn nhập không chinh xác";
         }
         if (!array_filter($errors)) {
-            $_SESSION['nhanvien'] = $item['tai_khoan'];
-            $_SESSION['id_nhanvien'] = $item['ma_nhan_vien'];
-            if ($item['vai_tro'] == 1) {
-                header("location: trang_chinh");
-            } else {
-                header("location: ../NhanVien/");
-            }
+            $_SESSION['admin'] = $item['username'];
+            $_SESSION['admin'] = $item['ma_so'];
+            header("location: trang_chinh");
         }
     }
 }

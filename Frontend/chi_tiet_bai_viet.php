@@ -1,5 +1,6 @@
 <?php
 $bv_detail = bv_select_by_id($_GET['mabv']);
+$dv_5 = dv_select_limit_5();
 
 
 ?>
@@ -21,71 +22,22 @@ $bv_detail = bv_select_by_id($_GET['mabv']);
             <img src="../resources/img/dichvu/aside.jpg" alt="" width="100%">
             <h4 class="mt-4">Dịch vụ tại PolyHair</h4>
             <div class="row">
-                <div class="col-sm-12 mt-2">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <a href="">
-                                <img src="../resources/img/dichvu/dichvu.jpg" alt="" width="100%">
-                            </a>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="name">Tên dịch vụ</div>
-                            <div class="price">100 000 đ</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 mt-2">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <a href="">
-                                <img src="../resources/img/dichvu/dichvu.jpg" alt="" width="100%">
-                            </a>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="name">Tên dịch vụ</div>
-                            <div class="price">100 000 đ</div>
+                <?php foreach ($dv_5 as $key => $value) : ?>
+
+                    <div class="col-sm-12 mt-2">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <a href="index.php?chi_tiet_dv&madv=<?= $value['ma_dich_vu'] ?>">
+                                    <img src="../resources/img/dichvu/<?= $value['hinh_anh'] ?>" alt="" width="100%">
+                                </a>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="name"><?= $value['ten_dich_vu'] ?></div>
+                                <div class="price"><?= $value['gia'] ?> đ</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-12 mt-2">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <a href="">
-                                <img src="../resources/img/dichvu/dichvu.jpg" alt="" width="100%">
-                            </a>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="name">Tên dịch vụ</div>
-                            <div class="price">100 000 đ</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 mt-2">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <a href="">
-                                <img src="../resources/img/dichvu/dichvu.jpg" alt="" width="100%">
-                            </a>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="name">Tên dịch vụ</div>
-                            <div class="price">100 000 đ</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 mt-2">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <a href="">
-                                <img src="../resources/img/dichvu/dichvu.jpg" alt="" width="100%">
-                            </a>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="name">Tên dịch vụ</div>
-                            <div class="price">100 000 đ</div>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
