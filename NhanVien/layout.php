@@ -2,7 +2,7 @@
 
 session_start();
 if (!isset($_SESSION['id_nhanvien'])) {
-    header("location: $ADMIN_URL");
+    header("location: $STAFF_URL");
 }
 ?>
 

@@ -15,7 +15,7 @@ $tk = tk_select_by_id($_GET['id'])
             </div>
             <div class="form-group">
                 <label for="name">Họ và tên</label>
-                <input type="text" class="form-control" placeholder="Họ tên" name="ho_ten" value="<?= $tk['ho_ten']?>">
+                <input type="text" class="form-control" readonly placeholder="Họ tên" name="ho_ten" value="<?= $tk['ho_ten']?>">
                 <p class="errors" style="color: red;"><?= isset($errors['ho_ten']) ? $errors['ho_ten'] : '' ?></p>
 
             </div>
@@ -41,14 +41,14 @@ $tk = tk_select_by_id($_GET['id'])
         <img class="mt-4" src="<?= $IMG_URL ?>/taikhoan/<?= $tk['hinh_anh'] ?>" alt="" width="100">
             <div class="form-group">
                 <label for="name">Hình ảnh</label>
-                <input type="file" class="form-control" name="hinh">
-                <p class="errors" style="color: red;"><?= isset($errors['hinh_anh']) ? $errors['hinh_anh'] : '' ?></p>
+                <!-- <input type="file" readonly class="form-control" name="hinh">
+                <p class="errors" style="color: red;"><?= isset($errors['hinh_anh']) ? $errors['hinh_anh'] : '' ?></p> -->
             </div>
         
 
             <div class="form-group">
                 <label for="name">Email</label>
-                <input type="text" class="form-control" placeholder="Email" name="email" value="<?= $tk['email'] ?>">
+                <input type="text" readonly class="form-control" placeholder="Email" name="email" value="<?= $tk['email'] ?>">
                 <p class="errors" style="color: red;"><?= isset($errors['email']) ? $errors['email'] : '' ?></p>
             </div>
             <div class="form-group ">

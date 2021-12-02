@@ -26,7 +26,7 @@ try {
 
 ?>
 <h3 class="text-center text-uppercase m-2">Quản trị Tài khoản</h3>
-<a href="index.php?add" class="btn btn-success mb-4">Thêm mới tài khoản</a>
+<!-- <a href="index.php?add" class="btn btn-success mb-4">Thêm mới tài khoản</a> -->
 <form action="" method="post">
     <table class="table table-hover table-bordered table-light">
         <thead style="color: red;">

@@ -44,7 +44,7 @@ $date_now = date('Y-m-d', time());
 </ul>
 <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-    
+
     </div>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
@@ -88,9 +88,11 @@ $date_now = date('Y-m-d', time());
                             <td>
                                 <?php
                                 if ($row['trang_thai'] == 2) {
-                                    echo '<span style="color: red">thất bại</span>';
+                                    echo '<span style="color: blue">Đã hoàn thành</span>';
                                 } elseif ($row['trang_thai'] == 1) {
-                                    echo '<span style="color: green">thành công</span>';
+                                    echo '<span style="color: green">Đã xác nhận</span>';
+                                } elseif ($row['trang_thai'] == 3) {
+                                    echo '<span style="color: red">Khách không tới</span>';
                                 } else {
                                     echo '<span style="color: #333">Chưa xác nhận</span>';
                                 }

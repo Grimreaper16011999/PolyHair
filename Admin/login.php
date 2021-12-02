@@ -18,7 +18,7 @@ if (isset($_POST['btn_DangNhap'])) {
         }
         if (!array_filter($errors)) {
             $_SESSION['admin'] = $item['username'];
-            $_SESSION['admin'] = $item['ma_so'];
+            $_SESSION['id_admin'] = $item['ma_so'];
             header("location: trang_chinh");
         }
     }

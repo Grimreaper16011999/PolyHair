@@ -70,6 +70,7 @@ if (exist_param("dat_lich")) {
             'ten_tai_khoan' => '',
             'mat_khau' => ''
         ];
+        $mat_khau = md5($mat_khau);
         if ($ten_tai_khoan == null) {
             $errors['ten_tai_khoan'] = 'Số điện thoại để trống';
         } else {
@@ -167,8 +168,11 @@ if (exist_param("dat_lich")) {
             'mat_khau' => '',
             're_pass' => ''
         ];
+        
         $kh = tk_select_by_id($_SESSION['id_user']);
+        $mat_khau_old = md5($mat_khau_old);
         if ($kh['mat_khau'] != $mat_khau_old || $mat_khau_old == null) {
+           
             $errors['mk_old'] = "mật khẩu cũ không đúng";
         }
         if ($mat_khau == null) {
@@ -178,6 +182,7 @@ if (exist_param("dat_lich")) {
             $errors['re_pass'] = "mật khẩu không trùng khớp";
         }
         if (!array_filter($errors)) {
+            $mat_khau = md5($mat_khau);
             tai_khoan_change_password($mat_khau, $_SESSION['id_user']);
             $MESSAGE = "Thay đổi mật khẩu thành công";
             header('location: index.php?msg=' . $MESSAGE);
@@ -283,8 +288,12 @@ if (exist_param("dat_lich")) {
         } else {
             $hinh_anh = 'tk.jpg';
         }
-        if (tai_khoan_exist($ten_tai_khoan)) {
-            $errors['ten_tai_khoan'] = 'Tên tài khoản đã tồn tại';
+        if (!preg_match('/^(09|03|07|08|05)+([0-9]{8})$/', $ten_tai_khoan)) {
+            $errors['ten_tai_khoan'] = 'Số điện thoại không hợp lệ';
+        } else {
+            if (tai_khoan_exist($ten_tai_khoan)) {
+                $errors['ten_tai_khoan'] = 'Tên tài khoản đã tồn tại';
+            }
         }
         if ($ho_ten == null) {
             $errors['ho_ten'] = 'Dữ liệu không được để trống';
@@ -307,6 +316,7 @@ if (exist_param("dat_lich")) {
         }
 
         if (!array_filter($errors)) {
+            $mat_khau = md5($mat_khau);
             tk_insert($ten_tai_khoan, $ho_ten, $hinh_anh, $mat_khau, $email, $trang_thai);
             if ($file['size'] != 0) {
                 move_uploaded_file($file['tmp_name'], "../resources/img/taikhoan/" . $hinh_anh);

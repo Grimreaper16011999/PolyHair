@@ -5,7 +5,7 @@
     <form action="" method="post" class="col-sm-6">
         <div class="form-group">
             <label for="">Mật khẩu cũ</label>
-            <input type="password" class="form-control" name="mat_khau_old" value="<?= isset($mat_khau_old) ? $mat_khau_old : '' ?>">
+            <input type="password" class="form-control" name="mat_khau_old" value="">
             <span class="error" style="color: red;"><?= isset($errors['mk_old']) ? $errors['mk_old'] : '' ?></span>
         </div>
         <div class="form-group">

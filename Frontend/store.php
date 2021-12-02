@@ -30,13 +30,13 @@ try {
     <span>Trang chủ / Sản phẩm</span>
     <nav class="navbar navbar-light ">
         <div class="container-fluid">
-            <a class="navbar-brand">
+            <!-- <a class="navbar-brand">
                 Tìm kiếm
             </a>
             <form class="d-flex" method="POST">
                 <input class="form-control me-2" type="search" placeholder="Tìm kiếm">
                 <button class="btn btn-primary" type="submit">Search</button>
-            </form>
+            </form> -->
         </div>
     </nav>
     <div class="row">
