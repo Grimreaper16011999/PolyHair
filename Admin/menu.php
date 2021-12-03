@@ -7,6 +7,10 @@
                 <a class="nav-link d-inline-block" aria-current="page" href="<?= $ADMIN_URL ?>/trang_chinh">dashboard</a>
             </li>
             <li class="nav-item text-uppercase border-bottom ">
+                <i class="fas fa-sliders-h"></i>
+                <a class="nav-link d-inline-block" aria-current="page" href="<?= $ADMIN_URL ?>/slider">Quản lý slider</a>
+            </li>
+            <li class="nav-item text-uppercase border-bottom ">
                 <i class="fas fa-archive"></i>
                 <a class="nav-link d-inline-block" aria-current="page" href="<?= $ADMIN_URL ?>/co_so">Quản trị cơ sở</a>
             </li>

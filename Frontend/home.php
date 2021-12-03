@@ -2,7 +2,7 @@
 $dv = dv_select_limit_8();
 $kt = kt_select_limit_8();
 $km = km_select_limit_8();
-
+$sliders = slider_select_All_bat();
 
 ?>
 <link rel="stylesheet" href="../resources/css/frontend/home.css">
@@ -10,32 +10,22 @@ $km = km_select_limit_8();
 <div class="banner">
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <?php foreach ($sliders as $key => $value) : ?>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $key ?>" class="<?= ($key == 0) ? 'active' : '' ?>" aria-current="<?= ($key == 0) ? 'true' : '' ?>" aria-label="Slide <?= $key ?>"></button>
+            <?php endforeach; ?>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="../resources/img/slider/slide1.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Muốn tóc đẹp đến Poly Hair </h5>
-                    <p>Yêu cái đẹp là thưởng thức. Tạo ra cái đẹp là nghệ thuật.</p>
+            <?php foreach ($sliders as $key => $value) : ?>
+                <div class="carousel-item <?php if ($key == 0) {
+                                                echo 'active';
+                                            } ?>">
+                    <img src="../resources/img/slider/<?= $value['hinh_anh'] ?>" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5><?= $value['tieu_de'] ?></h5>
+                        <p><?= $value['noi_dung'] ?></p>
+                    </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <img src="../resources/img/slider/slide2.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Đơn giản là đẹp</h5>
-                    <p>Hạnh phúc là bí mật làm nên mọi nét đẹp. Không nhan sắc nào có thể thu hút mà không song hành cùng hạnh phúc</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="../resources/img/slider/slide3.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Còn chần chờ gì nữa</h5>
-                    <p>Vẻ đẹp của bạn là nghề nghiệp của chúng tôi.</p>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -55,7 +45,7 @@ $km = km_select_limit_8();
             <div class="trip col-6 col-sm-4  mt-2 mb-2 col-lg-3" style="height: auto;">
                 <div class="col-md-12">
                     <div class="img">
-                        <a href="index.php?chi_tiet_dv&madv=<?=$value['ma_dich_vu']?>">
+                        <a href="index.php?chi_tiet_dv&madv=<?= $value['ma_dich_vu'] ?>">
                             <img src="<?= $IMG_URL ?>/dichvu/<?= $value['hinh_anh'] ?>" alt="" width="274" height="300">
                         </a>
                         <div class="info">
@@ -75,7 +65,7 @@ $km = km_select_limit_8();
             <div class="trip col-6 col-sm-4  mt-2 mb-2 col-lg-3" style="height: auto;">
                 <div class="col-md-12">
                     <div class="img">
-                        <a href="index.php?chi_tiet_mt&mamt=<?=$value['ma_kieu_toc']?>">
+                        <a href="index.php?chi_tiet_mt&mamt=<?= $value['ma_kieu_toc'] ?>">
                             <img src="<?= $IMG_URL ?>/mau_toc/<?= $value['hinh_anh'] ?>" alt="" width="100%">
                         </a>
                         <div class="info">
@@ -94,7 +84,7 @@ $km = km_select_limit_8();
             <div class="trip col-6 col-sm-4  mt-2 mb-2 col-lg-3" style="height: auto;">
                 <div class="col-md-12">
                     <div class="img">
-                        <a href="index.php?chi_tiet_khuyenmai&makm=<?=$value['ma_khuyen_mai']?>">
+                        <a href="index.php?chi_tiet_khuyenmai&makm=<?= $value['ma_khuyen_mai'] ?>">
                             <img src="<?= $IMG_URL ?>/khuyenmai/<?= $value['hinh_anh'] ?>" alt="" width="100%">
                         </a>
                         <div class="info">

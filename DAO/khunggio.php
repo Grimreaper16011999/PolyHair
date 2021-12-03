@@ -39,3 +39,7 @@ function kg_select_by_id($ma_khung_gio)
     $sql = "SELECT *FROM khung_gio WHERE ma_khung_gio=?";
     return pdo_query_one($sql, $ma_khung_gio);
 }
+function kg_count(){
+    $sql = "SELECT COUNT(ma_khung_gio) as total FROM khung_gio";
+    return pdo_query_one($sql);
+}

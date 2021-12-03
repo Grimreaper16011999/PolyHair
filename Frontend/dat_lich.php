@@ -3,7 +3,9 @@
 $cs = coso_select_All();
 $kg = kg_select_All();
 $dv = dv_select_All();
-
+$date_now = date('Y-m-d', time());
+$week = strtotime(date("Y-m-d", strtotime($date_now)) . " +1 week");
+$week = strftime("%Y-%m-%d", $week);
 ?>
 <link rel="stylesheet" href="../resources/css/frontend/dat_lich.css">
 <div class="test">
@@ -40,7 +42,7 @@ $dv = dv_select_All();
                 </div>
                 <div class="form-group mt-4">
                     <label for="">Ngày cắt *</label><br>
-                    <input type="date" class="form-control" name="ngay_cat">
+                    <input type="date" class="form-control" name="ngay_cat"  min="<?= $date_now ?>" max="<?= $week ?>">
                     <span class="" style="color: red;"><?= isset($errors['ngay_cat']) ? $errors['ngay_cat'] : '' ?></span>
 
                 </div>

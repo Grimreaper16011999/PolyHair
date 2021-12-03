@@ -12,6 +12,8 @@ require "../DAO/baiviet.php";
 require "../DAO/kieutoc.php";
 require "../DAO/sanpham.php";
 require "../DAO/binhluan.php";
+require "../DAO/slider.php";
+
 
 
 

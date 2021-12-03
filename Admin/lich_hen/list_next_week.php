@@ -1,11 +1,12 @@
 <?php
-
-
 if (isset($_GET['msg'])) {
     echo "<script type='text/javascript'>alert('$msg');</script>";
 }
-
+$date_now = date('Y-m-d', time());
 try {
+    $date_now = date('Y-m-d', time());
+    $week = strtotime(date("Y-m-d", strtotime($date_now)) . " +1 week");
+    $week = strftime("%Y-%m-%d", $week);
     $limit = 8;
     $page = 1;
     if (isset($_GET['page'])) {
@@ -14,12 +15,11 @@ try {
     if ($page <= 0) {
         $page = 1;
     }
+   
     $firstIndex = ($page - 1) * $limit;
-
-    $list_nv = lich_hen_select_by_ma_tk_limit($_SESSION['id_nhanvien'], $firstIndex, $limit);
-    $manv = $_SESSION['id_nhanvien'];
-    // Phân trang lấy số trang 
-    $sql = "SELECT count(ma_don) as total FROM dat_lich WHERE ma_nhan_vien=$manv";
+    $list_nv = lich_hen_week($date_now, $week, $firstIndex, $limit);
+     // Phân trang lấy số trang 
+    $sql = "SELECT count(ma_don) as total FROM dat_lich WHERE ngay_cat>$date_now AND ngay_cat < $week";
     $countResult = pdo_query_one($sql);
     $count = $countResult['total'];
     $number = ceil($count / $limit);
@@ -27,10 +27,13 @@ try {
     die($e->getMessage());
 }
 
+//lịch hẹn hôm nay
+
+
 ?>
-<h3 class="text-center text-uppercase m-2">Quản lý lịch hẹn</h3>
-<a href="index.php?now" class="btn btn-warning">Lịch hẹn hôm nay</a>
-<a href="index.php?nextweek" class="btn btn-primary">Lịch hẹn tuần tới</a>
+<h3 class="text-center text-uppercase m-2">Lịch hẹn 1 tuần tới</h3>
+<a href="index.php" class="btn btn-success">Tất cả lịch hẹn</a>
+<a href="index.php?now" class="btn btn-primary">Lịch hẹn hôm nay</a>
 <form action="" method="post">
     <table class="table table-hover table-bordered table-light mt-3">
         <thead style="color: red;">
@@ -50,8 +53,10 @@ try {
                 <th>Trạng thái</th>
                 <th colspan="2" class="text-center">Tác vụ</th>
             </tr>
+
         </thead>
         <?php
+        
         foreach ($list_nv as $key => $row) : ?>
             <tbody>
                 <tr>
@@ -89,7 +94,7 @@ try {
             </tbody>
         <?php endforeach; ?>
     </table>
-    <!-- <button onclick="return confirm('Bạn có chắc muốn xoá không?')" type="submit" class="btn btn-danger" name="delete">Xoá mục đã chọn</button> -->
+    <button onclick="return confirm('Bạn có chắc muốn xoá không?')" type="submit" class="btn btn-danger" name="delete">Xoá mục đã chọn</button>
 </form>
 <?php
 if ($number > 1) {
@@ -133,7 +138,6 @@ if ($number > 1) {
 }
 ?>
 
-
 <script>
     $(document).ready(function() {
 
@@ -142,7 +146,6 @@ if ($number > 1) {
         });
 
     });
-
     $('#myTab a').on('click', function(e) {
         e.preventDefault()
         $(this).tab('show')

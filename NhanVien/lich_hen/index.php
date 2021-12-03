@@ -28,6 +28,12 @@ elseif(exist_param("edit")){
         header('location: index.php?msg=' . $MESSAGE);
     }
 }
+elseif(exist_param('now')){
+    $VIEW_NAME = 'list_now.php';
+}
+elseif(exist_param('nextweek')){
+    $VIEW_NAME = 'list_next_week.php';
+}
 else {
     $VIEW_NAME = 'list.php';
 }

@@ -9,10 +9,10 @@ $minutes_now = date('i',time());
 
 echo $minutes_now . "<br>";
 echo $hour_now . "<br>";
-// 1 tháng sau
-$month = strtotime(date("Y-m-d", strtotime($date_now)) . " +1 month");
-$month = strftime("%Y-%m-%d", $month);
-echo $month . "<br>";
+// 1 tuần sau
+$week = strtotime(date("Y-m-d", strtotime($date_now)) . " +1 week");
+$week = strftime("%Y-%m-%d", $week);
+// echo $week . "<br>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +26,7 @@ echo $month . "<br>";
 
 <body>
     <label for="">Ngày cắt</label>
-    <input type="date" name="date" id="" min="<?= $date_now ?>" max="<?= $month ?>">
+    <input type="date" name="date" id="" min="<?= $date_now ?>" max="<?= $week ?>">
 
     <label for="">Giờ cắt</label>
     <input type="radio" name="khung_gio" id="" <?php if($hour_now>9){echo 'disabled';}?>> 8h30: 9h00

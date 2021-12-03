@@ -11,10 +11,7 @@ require "../../DAO/baiviet.php";
 require "../../DAO/sanpham.php";
 require "../../DAO/kieutoc.php";
 require "../../DAO/binhluan.php";
-
-
-
-
+require "../../DAO/slider.php";
 
 $VIEW_NAME = "trang_chinh/home.php";
 include_once "../layout.php";

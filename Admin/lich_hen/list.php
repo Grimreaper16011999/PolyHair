@@ -30,9 +30,11 @@ $date_now = date('Y-m-d', time());
 
 ?>
 <h3 class="text-center text-uppercase m-2">Quản lý lịch hẹn</h3>
+<a href="index.php?now" class="btn btn-warning">Lịch hẹn hôm nay</a>
+<a href="index.php?nextweek" class="btn btn-primary">Lịch hẹn tuần tới</a>
 
 <form action="" method="post">
-    <table class="table table-hover table-bordered table-light">
+    <table class="table table-hover table-bordered table-light mt-3">
         <thead style="color: red;">
             <tr>
                 <th>
