@@ -13,14 +13,8 @@
             <input type="text" class="form-control" name="email" value="<?= isset($email) ? $email : '' ?>">
             <span class="error" style="color: red;"><?= isset($errors['email']) ? $errors['email'] : '' ?></span>
         </div>
-        <p>
-            <?php
-            if (isset($mk)) {
-                echo $mk;
-            }
-            ?>
-        </p>
-        <button type="submit" class="btn btn-success" name="btn_forgot">Tìm lại mật khẩu</button>
+        <button type="submit" class="btn btn-success mt-2" name="btn_forgot">Tìm lại mật khẩu</button>
+        
        
     </form>
 </div>

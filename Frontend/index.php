@@ -170,11 +170,11 @@ if (exist_param("dat_lich")) {
             'mat_khau' => '',
             're_pass' => ''
         ];
-        
+
         $kh = tk_select_by_id($_SESSION['id_user']);
         $mat_khau_old = md5($mat_khau_old);
         if ($kh['mat_khau'] != $mat_khau_old || $mat_khau_old == null) {
-           
+
             $errors['mk_old'] = "mật khẩu cũ không đúng";
         }
         if ($mat_khau == null) {
@@ -207,7 +207,30 @@ if (exist_param("dat_lich")) {
             }
         }
         if (!array_filter($errors)) {
-            $mk = "Mật khẩu của bạn là: " . $kh['mat_khau'];
+            $id = tai_khoan_select_by_tk($ten_tai_khoan)['ma_tai_khoan'];
+            header('location: index.php?changepass2&id=' . $id);
+        }
+    }
+} elseif (exist_param("changepass2")) {
+    $VIEW_NAME = "changepass2.php";
+    if (isset($_POST['btn-change_pass'])) {
+        extract($_POST);
+        $errors = [
+            'mat_khau' => '',
+            're_pass' => ''
+        ];
+        if ($mat_khau == null) {
+            $errors['mat_khau'] = "mật khẩu không được để trông";
+        }
+        if ($re_mat_khau != $mat_khau) {
+            $errors['re_pass'] = "mật khẩu không trùng khớp";
+        }
+        if (!array_filter($errors)) {
+            $mat_khau = md5($mat_khau);
+            $id = $_GET['id'];
+            tai_khoan_change_password($mat_khau, $id);
+            $MESSAGE = "Thay đổi mật khẩu thành công";
+            header('location: index.php?msg=' . $MESSAGE);
         }
     }
 } elseif (exist_param("lichsudon")) {
