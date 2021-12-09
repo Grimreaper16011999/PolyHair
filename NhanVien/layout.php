@@ -10,7 +10,7 @@ if (!isset($_SESSION['id_nhanvien'])) {
 <html>
 
 <head>
-    <title>Admin</title>
+    <title>Staff</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 

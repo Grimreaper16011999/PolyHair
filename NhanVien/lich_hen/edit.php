@@ -23,16 +23,16 @@ $dh = lich_hen_select_by_id($_GET['id'])
                     <b>Stylist:</b> <?= nv_select_by_id($dh['ma_nhan_vien'])['ten_nhan_vien'] ?>
                 </div>
                 <div class="form-group">
-                    <b>Ngày đặt:</b> <?=$dh['ngay_dat'] ?>
+                    <b>Ngày đặt:</b> <?= $dh['ngay_dat'] ?>
                 </div>
                 <div class="form-group">
-                    <b>Ngày cắt:</b> <?=$dh['ngay_cat'] ?>
+                    <b>Ngày cắt:</b> <?= $dh['ngay_cat'] ?>
                 </div>
                 <div class="form-group">
                     <b>Giờ cắt:</b> <?= kg_select_by_id($dh['ma_khung_gio'])['thoi_gian'] ?>
                 </div>
                 <div class="form-group">
-                    <b>Mã khuyến mãi:</b> <?=$dh['ma_khuyen_mai'] ?>
+                    <b>Mã khuyến mãi:</b> <?= $dh['ma_khuyen_mai'] ?>
                 </div>
             </div>
             <div class="col-sm-6">
@@ -44,16 +44,16 @@ $dh = lich_hen_select_by_id($_GET['id'])
             <div class="col-sm-12 d-flex justify-content-between border-bottom">
                 <h4>Tổng tiền</h4>
                 <p class="text-right" style="color: red">
-                <?php
+                    <?php
                     $tt = 0;
                     $tien_dich_vu = dv_select_by_id($dh['ma_dich_vu'])['gia'];
-                    $tt +=$tien_dich_vu;
-                    if(km_exist($dh['ma_khuyen_mai'])){
-                        $tt+=$tt*(1-km_select_by_id($dh['ma_khuyen_mai'])['gia'])/100;
+                    $tt += $tien_dich_vu;
+                    if (km_exist($dh['ma_khuyen_mai'])) {
+                        $tt += $tt * (1 - km_select_by_id($dh['ma_khuyen_mai'])['gia']) / 100;
                     }
                     echo $tt;
-                ?>
-                VNĐ</p>
+                    ?>
+                    VNĐ</p>
             </div>
         </div>
     </div>
@@ -70,6 +70,12 @@ $dh = lich_hen_select_by_id($_GET['id'])
                 <input class="form-check-input" type="radio" name="trang_thai" value="1" <?= ($dh['trang_thai'] == 1) ? 'checked' : '' ?>>
                 <label class="form-check-label" for="trang_thai2" style="color: green;">
                     Đã xác nhận
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="trang_thai" value="4" <?= ($dh['trang_thai'] == 4) ? 'checked' : '' ?>>
+                <label class="form-check-label" for="trang_thai2" style="color: yellow;">
+                    Đang cắt
                 </label>
             </div>
             <div class="form-check">

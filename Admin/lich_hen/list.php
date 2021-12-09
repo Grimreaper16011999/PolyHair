@@ -78,6 +78,8 @@ $date_now = date('Y-m-d', time());
                             echo '<span style="color: green">Đã xác nhận</span>';
                         } elseif ($row['trang_thai'] == 3) {
                             echo '<span style="color: red">Khách không tới</span>';
+                        } elseif ($row['trang_thai'] == 4) {
+                            echo '<span style="color: red">Đang cắt</span>';
                         } else {
                             echo '<span style="color: #333">Chưa xác nhận</span>';
                         }

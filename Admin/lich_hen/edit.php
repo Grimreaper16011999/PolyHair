@@ -73,6 +73,12 @@ $dh = lich_hen_select_by_id($_GET['id'])
                 </label>
             </div>
             <div class="form-check">
+                <input class="form-check-input" type="radio" name="trang_thai" value="4" <?= ($dh['trang_thai'] == 4) ? 'checked' : '' ?>>
+                <label class="form-check-label" for="trang_thai2" style="color: yellow;">
+                    Đang cắt
+                </label>
+            </div>
+            <div class="form-check">
                 <input class="form-check-input" type="radio" name="trang_thai" value="2" <?= ($dh['trang_thai'] == 2) ? 'checked' : '' ?>>
                 <label class="form-check-label" for="trang_thai2" style="color: blue;">
                     Đã hoàn thành

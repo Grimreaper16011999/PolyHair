@@ -13,7 +13,7 @@ try {
         $page = 1;
     }
     $firstIndex = ($page - 1) * $limit;
-    $list_nv = lich_hen_date_now($date_now,$firstIndex,$limit);
+    $list_nv = lich_hen_date_now($date_now, $firstIndex, $limit);
     // Phân trang lấy số trang 
     $sql = "SELECT count(ma_don) as total FROM dat_lich WHERE ngay_cat=$date_now";
     $countResult = pdo_query_one($sql);
@@ -52,7 +52,7 @@ try {
 
         </thead>
         <?php
-        
+
         foreach ($list_nv as $key => $row) : ?>
             <tbody>
                 <tr>
@@ -76,6 +76,8 @@ try {
                             echo '<span style="color: green">Đã xác nhận</span>';
                         } elseif ($row['trang_thai'] == 3) {
                             echo '<span style="color: red">Khách không tới</span>';
+                        } elseif ($row['trang_thai'] == 4) {
+                            echo '<span style="color: red">Đang cắt</span>';
                         } else {
                             echo '<span style="color: #333">Chưa xác nhận</span>';
                         }

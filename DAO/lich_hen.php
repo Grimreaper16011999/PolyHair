@@ -41,18 +41,18 @@ function lich_hen_select_by_ma_tk($ma_nhan_vien)
 }
 function lich_hen_select_All_limit($firstindex, $limit)
 {
-    $sql = "SELECT *FROM dat_lich LIMIT $firstindex,$limit";
+    $sql = "SELECT *FROM dat_lich ORDER BY ngay_dat DESC LIMIT $firstindex,$limit";
     return pdo_query($sql);
 }
 function lich_hen_select_by_tk($ma_tai_khoan, $firstindex, $limit)
 {
-    $sql = "SELECT *FROM dat_lich WHERE ma_tai_khoan=? LIMIT $firstindex,$limit";
+    $sql = "SELECT *FROM dat_lich WHERE ma_tai_khoan=? ORDER BY ngay_dat DESC LIMIT $firstindex,$limit";
     return pdo_query($sql, $ma_tai_khoan);
 }
 
 function lich_hen_select_by_ma_tk_limit($ma_nhan_vien, $firstindex, $limit)
 {
-    $sql = "SELECT *FROM dat_lich WHERE ma_nhan_vien=?  LIMIT $firstindex,$limit";
+    $sql = "SELECT *FROM dat_lich WHERE ma_nhan_vien=? ORDER BY ngay_dat DESC  LIMIT $firstindex,$limit";
     return pdo_query($sql, $ma_nhan_vien);
 }
 // Truy vấn theo mã nhân viên
@@ -72,28 +72,30 @@ function lh_count()
 function lich_hen_date_now($ngay_cat, $firstIndex, $limit)
 {
 
-    $sql = "SELECT *FROM dat_lich WHERE ngay_cat=? LIMIT $firstIndex,$limit";
+    $sql = "SELECT *FROM dat_lich WHERE ngay_cat=? ORDER BY ngay_dat DESC LIMIT $firstIndex,$limit";
     return pdo_query($sql, $ngay_cat);
 }
 
 // Lịch hẹn 1 tuần tới
 function lich_hen_week($date_now,$week,$firstIndex, $limit)
 {
-    $sql = "SELECT *FROM dat_lich WHERE ngay_cat>=? AND ngay_cat <= ? LIMIT $firstIndex,$limit";
+    $sql = "SELECT *FROM dat_lich WHERE ngay_cat>=? AND ngay_cat <= ? ORDER BY ngay_dat DESC LIMIT $firstIndex,$limit ";
     return pdo_query($sql,$date_now,$week);
 }
 
 function lich_hen_date_now_nv($ma_nhan_vien,$ngay_cat, $firstIndex, $limit)
 {
 
-    $sql = "SELECT *FROM dat_lich WHERE ma_nhan_vien=? AND ngay_cat=? LIMIT $firstIndex,$limit";
+    $sql = "SELECT *FROM dat_lich WHERE ma_nhan_vien=? AND ngay_cat=? ORDER BY ngay_dat DESC LIMIT $firstIndex,$limit";
     return pdo_query($sql,$ma_nhan_vien ,$ngay_cat);
 }
 
 // Lịch hẹn 1 tuần tới
 function lich_hen_week_nv($ma_nhan_vien,$date_now,$week,$firstIndex, $limit)
 {
-    $sql = "SELECT *FROM dat_lich WHERE ma_nhan_vien=? AND ngay_cat>=? AND ngay_cat <= ? LIMIT $firstIndex,$limit";
+    $sql = "SELECT *FROM dat_lich WHERE ma_nhan_vien=? AND ngay_cat>=? AND ngay_cat <= ? ORDER BY ngay_dat DESC LIMIT $firstIndex,$limit";
     return pdo_query($sql,$ma_nhan_vien,$date_now,$week);
 }
+
+// Lịch sử cắt
 

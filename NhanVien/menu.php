@@ -12,7 +12,7 @@
             </li>
             <li class="nav-item text-uppercase border-bottom">
                 <i class="fas fa-sign-out-alt"></i>
-                <a class="nav-link d-inline-block" href="">Đăng xuất</a>
+                <a class="nav-link d-inline-block" href="<?= $STAFF_URL ?>/logout.php">Đăng xuất</a>
             </li>
         </ul>
     </nav>

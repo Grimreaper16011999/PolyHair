@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-3 pb-4"><i class="fas fa-laptop-house" style="font-size: 50px;"></i></div>
                 <div class="col-9">
-                    <h4>cơ sở</h4>
+                    <h4>Cơ sở</h4>
                 </div>
                 <div class="col-12">
                     <h1><?= coso_count()['total'] ?></h1>
@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-3 pb-4"><i class="fas fa-users" style="font-size: 50px;"></i></div>
                 <div class="col-9">
-                    <h4>nhân viên</h4>
+                    <h4>Nhân viên</h4>
                 </div>
                 <div class="col-12">
                     <h1><?= nv_count()['total'] ?></h1>
@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-3 pb-4"><i class="fab fa-servicestack" style="font-size: 50px;"></i></div>
                 <div class="col-9">
-                    <h4>dịch vụ</h4>
+                    <h4>Dịch vụ</h4>
                 </div>
                 <div class="col-12">
                     <h1><?= dv_count()['total'] ?></h1>
@@ -43,7 +43,7 @@
             <div class="row">
                 <div class="col-3 pb-4"><i class="fas fa-paper-plane" style="font-size: 50px;"></i></div>
                 <div class="col-9">
-                    <h4>lịch hẹn</h4>
+                    <h4>Lịch hẹn</h4>
                 </div>
                 <div class="col-12">
                     <h1><?= lh_count()['total'] ?></h1>
@@ -56,7 +56,7 @@
             <div class="row">
                 <div class="col-3 pb-4"><i class="fas fa-user" style="font-size: 50px;"></i></div>
                 <div class="col-9">
-                    <h4>tài khoản</h4>
+                    <h4>Tài khoản</h4>
                 </div>
                 <div class="col-12">
                     <h1><?= tk_count()['total'] ?></h1>

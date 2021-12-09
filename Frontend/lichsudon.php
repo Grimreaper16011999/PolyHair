@@ -72,13 +72,17 @@
                     </td>
                     <td>
                         <?php
-                        if ($row['trang_thai'] == 2) {
-                            echo '<span style="color: red">thất bại</span>';
-                        } elseif ($row['trang_thai'] == 1) {
-                            echo '<span style="color: green">thành công</span>';
-                        } else {
-                            echo '<span style="color: #333">Chưa xác nhận</span>';
-                        }
+                       if ($row['trang_thai'] == 2) {
+                        echo '<span style="color: blue">Đã hoàn thành</span>';
+                    } elseif ($row['trang_thai'] == 1) {
+                        echo '<span style="color: green">Đã xác nhận</span>';
+                    } elseif ($row['trang_thai'] == 3) {
+                        echo '<span style="color: red">Khách không tới</span>';
+                    } elseif ($row['trang_thai'] == 4) {
+                        echo '<span style="color: red">Đang cắt</span>';
+                    } else {
+                        echo '<span style="color: #333">Chưa xác nhận</span>';
+                    }
 
                         ?>
                     </td>
